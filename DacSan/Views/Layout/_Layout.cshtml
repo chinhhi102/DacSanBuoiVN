@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Đặc sản Bưởi Việt Nam</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script src="~/Content/Guest/js/jquery-3.2.1.min.js"></script>
+    <script src="~/Content/Guest/js/jquery-3.2.1.min.js"></script>
+
+    <link rel="stylesheet" href="~/Content/Guest/css/reset.css">
+    <link rel="stylesheet" href="~/Content/Guest/fonts.googleapis.com/css-family=Muli-Roboto+Condensed-Roboto+Slab-Lobster.htm">
+    <link rel="stylesheet" href="~/Content/Guest/add-on/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/Guest/add-on/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/Guest/css/style.css">
+    <link rel="stylesheet" href="~/Content/Guest/add-on/animate/animate.css">
+    <link rel="stylesheet" href="~/Content/Guest/add-on/bootstrap-dropdownhover/bootstrap-dropdownhover.min.css">
+    <link rel="stylesheet" href="~/Content/Guest/add-on/owlcarousel2-2.2.1/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/Guest/add-on/owlcarousel2-2.2.1/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Content/Guest/add-on/ihover/ihover.min.css">
+    <link rel="stylesheet" href="~/Content/Guest/add-on/fancybox-3/jquery.fancybox.min.css">
+</head>
+@* *************** BODY ************** *@
+<body>
+    <header class="hidden-xs">
+        @Html.Partial("~/Views/Layout/_Header.cshtml")
+    </header>
+    <nav>
+        @Html.Partial("~/Views/Layout/_Navbar.cshtml")
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
