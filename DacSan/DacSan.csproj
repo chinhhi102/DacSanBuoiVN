@@ -153,6 +153,31 @@
     <Content Include="Content\Guest\add-on\owlcarousel2-2.2.1\assets\owl.video.play.png" />
     <Content Include="Content\Guest\add-on\owlcarousel2-2.2.1\owl.carousel.min.js" />
     <Content Include="Content\Guest\add-on\wow\wow.min.js" />
+    <Content Include="Content\Guest\assets\add-on\animate\animate.css" />
+    <Content Include="Content\Guest\assets\add-on\bootstrap-3.3.7\css\bootstrap.min.css" />
+    <Content Include="Content\Guest\assets\add-on\bootstrap-3.3.7\js\bootstrap.min.js" />
+    <Content Include="Content\Guest\assets\add-on\bootstrap-dropdownhover\bootstrap-dropdownhover.js" />
+    <Content Include="Content\Guest\assets\add-on\bootstrap-dropdownhover\bootstrap-dropdownhover.min.css" />
+    <Content Include="Content\Guest\assets\add-on\fancybox-3\jquery.fancybox.min.css" />
+    <Content Include="Content\Guest\assets\add-on\fancybox-3\jquery.fancybox.min.js" />
+    <Content Include="Content\Guest\assets\add-on\flexible\jquery.easing.min.js" />
+    <Content Include="Content\Guest\assets\add-on\flexible\jquery.easy-ticker.min.js" />
+    <Content Include="Content\Guest\assets\add-on\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Content\Guest\assets\add-on\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2-v=4.7.0.htm" />
+    <Content Include="Content\Guest\assets\add-on\ihover\ihover.min.css" />
+    <Content Include="Content\Guest\assets\add-on\owlcarousel2-2.2.1\assets\owl.carousel.min.css" />
+    <Content Include="Content\Guest\assets\add-on\owlcarousel2-2.2.1\assets\owl.theme.default.min.css" />
+    <Content Include="Content\Guest\assets\add-on\owlcarousel2-2.2.1\assets\owl.video.play.png" />
+    <Content Include="Content\Guest\assets\add-on\owlcarousel2-2.2.1\owl.carousel.min.js" />
+    <Content Include="Content\Guest\assets\add-on\wow\wow.min.js" />
+    <Content Include="Content\Guest\assets\css\admin\store-widget.css" />
+    <Content Include="Content\Guest\assets\css\reset.css" />
+    <Content Include="Content\Guest\assets\css\style.css" />
+    <Content Include="Content\Guest\assets\images\next.png" />
+    <Content Include="Content\Guest\assets\images\prev.png" />
+    <Content Include="Content\Guest\assets\js\jquery-3.2.1.min.js" />
+    <Content Include="Content\Guest\assets\js\script.js" />
+    <Content Include="Content\Guest\assets\js\store-widget.js" />
     <Content Include="Content\Guest\css\admin\store-widget.css" />
     <Content Include="Content\Guest\css\reset.css" />
     <Content Include="Content\Guest\css\style.css" />
@@ -1326,6 +1351,13 @@
     <Content Include="Content\Guest\fonts.gstatic.com\s\roboto\v20\KFOmCnqEu92Fr1Me5g.woff" />
     <Content Include="Content\Guest\uploads\source\801cc67c6c818ddfd490.jpg-1533952805342" />
     <Content Include="Content\Guest\uploads\source\e63373b7fd471c194556.jpg-1533869978760" />
+    <Content Include="Content\Guest\assets\add-on\bootstrap-3.3.7\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Guest\assets\add-on\bootstrap-3.3.7\fonts\glyphicons-halflings-regular.svg#glyphicons_halflingsregular" />
+    <Content Include="Content\Guest\assets\add-on\bootstrap-3.3.7\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Guest\assets\add-on\bootstrap-3.3.7\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Guest\assets\add-on\bootstrap-3.3.7\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\Guest\assets\add-on\font-awesome-4.7.0\fonts\fontawesome-webfont.eot#iefix-v=4.7.0" />
+    <Content Include="Content\Guest\assets\add-on\font-awesome-4.7.0\fonts\fontawesome-webfont.svg-v=4.7.0.htm-" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Guest.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
