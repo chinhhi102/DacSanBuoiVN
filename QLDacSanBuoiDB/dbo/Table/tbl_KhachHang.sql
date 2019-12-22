@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[tbl_KhachHang]
+(
+	[KhachHangID] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Ten] NVARCHAR(50) NULL, 
+    [DiaChi] NVARCHAR(50) NULL, 
+    [SDT] NVARCHAR(50) NULL
+)

@@ -1,0 +1,44 @@
+﻿<div class="warper">
+    <div class="container">
+        <div class="widget_slider" style="">
+            <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+            <link rel="stylesheet" type="text/css" href="~/Content/Guest/plugins/ht-slider/assets/src/css/settings.css" media="screen" />
+            <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+            <script type="text/javascript" src="~/Content/Guest/plugins/ht-slider/assets/src/js/jquery.themepunch.plugins.min.js"></script>
+            <script type="text/javascript" src="~/Content/Guest/plugins/ht-slider/assets/src/js/jquery.themepunch.revolution.min.js"></script>
+
+            <div class="tp-slider-box col-xs-13 col-sm-13 col-md-13">
+                <div class="tp-banner-container" style="position: relative;">
+                    <div class="tp-banner">
+                        <ul style="max-width:70%; list-style:none">
+                            <li data-transition="fade" data-slotamount="5" data-masterspeed="700" data-link=""><img src="~/Content/Guest/uploads/source/baner1.jpg" alt="" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat"></li>
+                            @*<li data-transition="fade" data-slotamount="5" data-masterspeed="700" data-link=""><img src="~/Content/Guest/uploads/source/baner2.jpg" alt="" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat"></li>
+                            <li data-transition="fade" data-slotamount="5" data-masterspeed="700" data-link=""><img src="~/Content/Guest/uploads/source/slider/baner4.jpg" alt="" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat"></li>
+                            <li data-transition="fade" data-slotamount="5" data-masterspeed="700" data-link=""><img src="~/Content/Guest/uploads/source/slider/baner4-1.jpg" alt="" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat"></li>*@
+                        </ul>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    var revapi, revcf, w_width;
+                    w_width = $(window).width();
+                    revcf = {
+                        delay: 5000,
+                        startheight: 400,
+                        hideThumbs: 10
+                    }
+
+                    $(document).ready(function () {
+
+                        revcf.startheight = 400;
+
+                        if (w_width < 868) revcf.startheight = 400;
+
+                        if (w_width < 668) revcf.startheight = 300;
+
+                        revapi = jQuery('.tp-banner').revolution(revcf);
+                    }); //ready
+                </script>
+            </div>
+        </div>
+    </div>
+</div>

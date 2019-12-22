@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+
+<div class="container headerNav">
+
+    <div class="navigation hidden-xs">
+        @Html.Partial("~/Areas/Guest/Views/Shared/_Navbar.cshtml")
+    </div>
+</div>
+
+<section id="layout_body">
+    <div style="padding: 10px">
+        <nav>
+            <div id="mySidenav" class="sidenav">
+                @Html.Partial("~/Areas/Guest/Views/Shared/_LeftNavbar.cshtml")
+            </div>
+        </nav>
+        <article>
+            @Html.Partial("~/Areas/Guest/Views/Shared/_Imglayout.cshtml")
+        </article>
+    </div>
+    <div>
+        @Html.Partial("~/Areas/Guest/Views/Home/_Home.cshtml")
+    </div>
+</section>
+
