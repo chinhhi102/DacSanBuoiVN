@@ -34,5 +34,18 @@ namespace DataLibrary.BusinessLogic
                            from dbo.tbl_Users";
             return SqlDataAccess.LoadData<UsersModel>(sql);
         }
+
+        public static UsersModel GetUser(string _username, string _password)
+        {
+            string sql = String.Format("SELECT Username, Password, FirstName, LastName, EmailAddress, PhoneNumber, Role from dbo.tbl_Users WHERE Username = '{0}' AND Password = '{1}' ", _username, _password);
+            List<UsersModel> user = SqlDataAccess.LoadData<UsersModel>(sql);
+
+            System.Diagnostics.Debug.WriteLine(sql);
+
+            if (user.Count > 0)
+                return user[0];
+            else
+                return null;
+        }
     }
 }
