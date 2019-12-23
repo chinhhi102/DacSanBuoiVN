@@ -12,15 +12,21 @@ body {
 
 /****** Side Navbar ***********/
 /* Create two columns/boxes that floats next to each other */
+#layout_body{
+    height: auto;
+}
+
 #layout_body nav {
     float: left;
     width: 30%;
-    height: 300px; /* only for demonstration, should be removed */
-    background: #ccc;
+    min-height: 300px;
+    height: auto; /* only for demonstration, should be removed */
     padding: 20px;
 }
 
-#layout_body h5{
+
+
+#layout_body .nav_header{
     border: 7px solid;
     text-align: center;
     padding: 15px;
@@ -32,6 +38,7 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    position: relative;
 }
 
     #layout_body nav ul li {
@@ -46,21 +53,35 @@ body {
         transition: font-size 0.3s ease, background-color 0.3s ease;
     }
 
-        #layout_body nav ul li:last-child {
-            border: none;
+    #layout_body nav ol {
+        margin-left: 15px;
+        list-style: none;
+    }
+
+    #layout_body nav ol>li{
+        font-size: 16px
+    }
+
+        #layout_body nav ol>li a:hover {
+            font-size: 18px
         }
 
-        #layout_body nav ul li a:hover {
-            font-size: 30px;
+    #layout_body nav ul li:last-child {
+        border: none;
+    }
+
+        #layout_body nav ul>li>a:hover {
+            font-size: 25px;
             background: #f6f6f6;
         }
 
 #layout_body article {
+    min-height: 300px;
     float: left;
     padding: 20px;
     width: 70%;
     background-color: #f1f1f1;
-    height: 300px; /* only for demonstration, should be removed */
+    height: auto; /* only for demonstration, should be removed */
 }
 
 /* Clear floats after the columns */

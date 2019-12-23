@@ -4,13 +4,26 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace DacSan.Guest.Controllers
+namespace DacSan.Areas.Guest.Controllers
 {
     public class HomeController : Controller
     {
+        private void __construct()
+        {
+            ViewBag.Title = "Trang Quản Trị";
+            if (Session["UserID"] != null)
+            {
+                ViewBag.UserID = Session["UserID"];
+                ViewBag.UserName = Session["UserName"];
+                ViewBag.UserRole = Session["UserRole"];
+            }
+        }
+
         // GET: Home
         public ActionResult Index()
         {
+            if (Session["UserID"] != null)
+                __construct();
             return View();
         }
     }

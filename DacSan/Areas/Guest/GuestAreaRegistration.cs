@@ -18,7 +18,7 @@ namespace DacSan.Areas.Guest
                 "Guest_Default",
                 "{controller}/{action}/{id}",
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                new[] { "DacSan.Guest.Controllers" }
+                new[] { "DacSan.Areas.Guest.Controllers" }
             );
         }
     }

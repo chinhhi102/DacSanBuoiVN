@@ -18,7 +18,8 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress>true</Use64BitIISExpress>
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
     <IISExpressSSLPort>44342</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -122,23 +123,18 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Guest\Controllers\AccountController.cs" />
     <Compile Include="Areas\Guest\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Guest\Controllers\ProductController.cs" />
     <Compile Include="Areas\Guest\GuestAreaRegistration.cs" />
-    <Compile Include="Models\UsersModel.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\GuestController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\AdminAuthorization.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
+    <Compile Include="Areas\Guest\GuestAuthorization.cs" />
+    <Compile Include="Areas\Guest\Models\ResetPassword.cs" />
+    <Compile Include="Areas\Guest\Models\UserLoginModel.cs" />
     <Compile Include="Models\UsersModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -1379,8 +1375,9 @@
     <Content Include="Content\Guest\uploads\source\vietquatchuatri2.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Global.asax" />
+    <Compile Include="Global.asax.cs" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\Guest\add-on\bootstrap-3.3.7\fonts\glyphicons-halflings-regular.eot" />
@@ -1419,38 +1416,32 @@
     <Content Include="Content\Guest\assets\add-on\bootstrap-3.3.7\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\Guest\assets\add-on\font-awesome-4.7.0\fonts\fontawesome-webfont.eot#iefix-v=4.7.0" />
     <Content Include="Content\Guest\assets\add-on\font-awesome-4.7.0\fonts\fontawesome-webfont.svg-v=4.7.0.htm-" />
-<<<<<<< HEAD
-<<<<<<< HEAD
     <Content Include="Areas\Guest\Views\web.config" />
     <Content Include="Areas\Guest\Views\Shared\_Footer.cshtml" />
     <Content Include="Areas\Guest\Views\Shared\_Header.cshtml" />
     <Content Include="Areas\Guest\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Guest\Views\Shared\_Navbar.cshtml" />
     <Content Include="Areas\Guest\Views\Shared\Error.cshtml" />
-    <Content Include="Areas\Guest\Views\Home\Gioithieu.cshtml" />
     <Content Include="Areas\Guest\Views\Home\Lienhe.cshtml" />
     <Content Include="Areas\Guest\Views\Home\Index.cshtml" />
     <Content Include="Areas\Guest\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Guest\Views\Shared\_LeftNavbar.cshtml" />
-    <Content Include="Areas\Guest\Views\Shared\_Imglayout.cshtml" />
+    <Content Include="Areas\Guest\Views\Shared\_Banner.cshtml" />
     <Content Include="Content\Guest\plugins\ht-slider\assets\src\font\revicons.eot-5510888" />
     <Content Include="Content\Guest\plugins\ht-slider\assets\src\font\revicons.svg-5510888#revicons" />
     <Content Include="Content\Guest\plugins\ht-slider\assets\src\font\revicons.ttf-5510888" />
     <Content Include="Content\Guest\plugins\ht-slider\assets\src\font\revicons.woff-5510888" />
     <Content Include="Areas\Guest\Views\Home\_Home.cshtml" />
-    <Content Include="Areas\Guest\Views\Home\Tintuc.cshtml" />
-    <Content Include="Areas\Guest\Views\Home\Sanpham.cshtml" />
-    <Content Include="Areas\Guest\Views\Home\Chitietsanpham.cshtml" />
-    <Content Include="Areas\Guest\Views\Home\Dangnhap.cshtml" />
-=======
->>>>>>> 0a9254224c80b1e2d859edeb40f986cb42d31bf4
-=======
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
->>>>>>> trung
+    <Content Include="Areas\Guest\Views\Account\_AccountLayout.cshtml" />
+    <Content Include="Areas\Guest\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Guest\Views\Account\Register.cshtml" />
+    <Content Include="Areas\Guest\Views\Account\ResetPassword.cshtml" />
+    <Content Include="Areas\Guest\Views\Account\Info.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Guest.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -1480,11 +1471,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-<<<<<<< HEAD
-=======
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Product\" />
->>>>>>> trung
+    <Folder Include="Areas\Guest\Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

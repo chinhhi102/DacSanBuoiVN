@@ -6,13 +6,25 @@
                 <i class="fa fa-map-marker" aria-hidden="true"></i> (+84) 969 969 969
             </div>
             <div class="col-md-6 text-right">
-                <p style="display:inline-block;margin:0;">
-                    <a href="Tai-khoan/register"> <i class="fa fa-user-plus" aria-hidden="true"></i> Đăng ký
-                </p>
-                &nbsp;&nbsp;&nbsp;
-                <p style="display:inline-block;margin:0;">
-                    <a href="/Tai-khoan/login"> <i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập
-                </p>
+                @if (ViewBag.UserName != null)
+                {
+                    <p style="display:inline-block; margin:0;">
+                        <a href="/Account/Info"> <i class="fa fa-user" aria-hidden="true"></i> Xin chào, @ViewBag.UserName
+                    </p>
+                    <p style="display:inline-block; margin:0px 0px 0px 14px;">
+                        <a href="/Account/Logout"> <i class="fa fa-sign-out" aria-hidden="true"></i> Đăng xuất
+                    </p>
+                }
+                else
+                {
+
+                    <p style="display:inline-block; margin:0;">
+                        <a href="/Account/Register"> <i class="fa fa-user-plus" aria-hidden="true"></i> Đăng ký
+                    </p>
+                    <p style="display:inline-block; margin:0px 0px 0px 14px;">
+                        <a href="/Account/Login"> <i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập
+                    </p>
+                }
                 &nbsp;&nbsp;
                 <p style="display:inline-block;margin:0;"><a href="/Huong-dan-mua-hang">Hướng dẫn mua hàng</p>
                 <div class="social-icon" style="display:inline-block;">
