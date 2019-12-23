@@ -45,8 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\DiaChiProcessor.cs" />
+    <Compile Include="BusinessLogic\LoaiSPProcessor.cs" />
+    <Compile Include="BusinessLogic\ProductProcessor.cs" />
     <Compile Include="BusinessLogic\UsersProcessor.cs" />
     <Compile Include="DataAccess\SqlDataAccess.cs" />
+    <Compile Include="Models\DiaChiModel.cs" />
+    <Compile Include="Models\LoaiSPModel.cs" />
+    <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\UsersModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

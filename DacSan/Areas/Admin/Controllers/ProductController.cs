@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DataLibrary.Models;
+using static DataLibrary.BusinessLogic.ProductProcessor;
+using static DataLibrary.BusinessLogic.LoaiSPProcessor;
+using static DataLibrary.BusinessLogic.DiaChiProcessor;
 
 namespace DacSan.Areas.Admin.Controllers
 {
@@ -11,6 +15,10 @@ namespace DacSan.Areas.Admin.Controllers
         // GET: Admin/Product
         public ActionResult Index()
         {
+            var products = LoadProducts();
+            ViewBag.Title = "Quản Lý Sản Phẩm";
+            ViewData["products"] = products;
+
             return View();
         }
 
@@ -23,17 +31,21 @@ namespace DacSan.Areas.Admin.Controllers
         // GET: Admin/Product/Create
         public ActionResult Create()
         {
+            var loaisp = LoadLoaiSP();
+            ViewData["loaisp"] = loaisp;
+            var diachi = LoadDiaChi();
+            ViewData["diachi"] = diachi;
+            ViewBag.Title = "Thêm Sản Phẩm";
             return View();
         }
 
         // POST: Admin/Product/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(ProductModel product)
         {
             try
             {
-                // TODO: Add insert logic here
-
+                CreateProduct(product.TenSP, product.MoTa, product.LoaiSPID, product.DiaChiID);
                 return RedirectToAction("Index");
             }
             catch
