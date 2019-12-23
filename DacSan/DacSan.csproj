@@ -121,13 +121,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\Models\ResetPassword.cs" />
+    <Compile Include="Areas\Admin\Models\UserLoginModel.cs" />
     <Compile Include="Areas\Guest\Controllers\AccountController.cs" />
     <Compile Include="Areas\Guest\Controllers\HomeController.cs" />
     <Compile Include="Areas\Guest\Controllers\ProductController.cs" />
     <Compile Include="Areas\Guest\GuestAreaRegistration.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\AdminAuthorization.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
@@ -1475,7 +1474,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Views\Product\" />
     <Folder Include="Areas\Guest\Views\Product\" />
   </ItemGroup>
   <ItemGroup>

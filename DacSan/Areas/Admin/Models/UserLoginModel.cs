@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace DacSan.Areas.Admin.Models
+namespace DacSan.Areas.Guest.Models
 {
     public class UserLoginModel
     {

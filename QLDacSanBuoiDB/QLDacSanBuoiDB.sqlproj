@@ -72,6 +72,7 @@
     <Build Include="dbo\Table\tbl_DonDatHang.sql" />
     <Build Include="dbo\Table\tbl_ChiTietDonDatHang.sql" />
     <Build Include="dbo\Table\tbl_KhachHang.sql" />
+    <Build Include="dbo\Table\tbl_DiaChiNhanHang.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="QLDacSanBuoiDB.refactorlog" />

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DacSan.Areas.Admin.Models;
 using DacSan.Models;
 using static DataLibrary.BusinessLogic.UsersProcessor;
 
@@ -26,7 +27,7 @@ namespace DacSan.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(UsersModel user)
+        public ActionResult Login(UserLoginModel user)
         {
             if (ModelState.IsValid)
             {

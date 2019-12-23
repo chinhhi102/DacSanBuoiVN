@@ -53,5 +53,7 @@ namespace DacSan.Models
             this.EmailAddress = _user.EmailAddress;
             this.PhoneNumber = _user.PhoneNumber;
         }
+
+        public UsersModel() { }
     }
 }
