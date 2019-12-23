@@ -39,3 +39,9 @@ INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi Internation', '...', RAND(
 
 
 SELECT * FROM dbo.tbl_SanPham;
+
+TRUNCATE TABLE dbo.tbl_Users;
+
+INSERT INTO dbo.tbl_SanPham VALUES('ad', 'ad', 'ad', 'ad', 'ad', 'ad', 2);
+
+SELECT * FROM dbo.tbl_Users;

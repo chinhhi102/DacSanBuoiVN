@@ -26,5 +26,11 @@ namespace DacSan.Areas.Guest.Controllers
                 __construct();
             return View();
         }
+
+        // GET: Home/Tutorial
+        public ActionResult Tutorial()
+        {
+            return View();
+        }
     }
 }
