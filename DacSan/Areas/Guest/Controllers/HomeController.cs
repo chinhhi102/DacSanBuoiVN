@@ -32,5 +32,20 @@ namespace DacSan.Areas.Guest.Controllers
         {
             return View();
         }
+
+        public ActionResult Introduct()
+        {
+            return View();
+        }
+
+        public ActionResult News()
+        {
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            return View();
+        }
     }
 }

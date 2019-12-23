@@ -1445,6 +1445,10 @@
     <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
     <Content Include="Areas\Guest\Views\Home\Tutorial.cshtml" />
+    <Content Include="Areas\Guest\Views\Home\Introduct.cshtml" />
+    <Content Include="Areas\Guest\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Guest\Views\Home\News.cshtml" />
+    <Content Include="Areas\Guest\Views\Home\Contact.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Guest.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -1475,7 +1479,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Guest\Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

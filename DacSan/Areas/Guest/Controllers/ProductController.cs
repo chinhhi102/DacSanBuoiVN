@@ -8,7 +8,7 @@ namespace DacSan.Areas.Guest.Controllers
 {
     public class ProductController : Controller
     {
-        // GET: Guest/Product
+        // GET: Product
         public ActionResult Index()
         {
             return View();
