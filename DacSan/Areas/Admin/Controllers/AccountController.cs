@@ -18,6 +18,7 @@ namespace DacSan.Areas.Admin.Controllers
 
         public ActionResult Login()
         {
+            ViewBag.Title = "Đăng Nhập Hệ Thống";
             if (Session["UserID"] != null)
                 return RedirectToAction("Index", "Home");
             return View();
