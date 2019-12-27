@@ -10,7 +10,7 @@ namespace DacSan.Areas.Guest.Controllers
     {
         private void __construct()
         {
-            ViewBag.Title = "Trang Quản Trị";
+            ViewBag.Title = "Trang Người dùng";
             if (Session["UserID"] != null)
             {
                 ViewBag.UserID = Session["UserID"];
@@ -30,21 +30,29 @@ namespace DacSan.Areas.Guest.Controllers
         // GET: Home/Tutorial
         public ActionResult Tutorial()
         {
+            if (Session["UserID"] != null)
+                __construct();
             return View();
         }
 
         public ActionResult Introduct()
         {
+            if (Session["UserID"] != null)
+                __construct();
             return View();
         }
 
         public ActionResult News()
         {
+            if (Session["UserID"] != null)
+                __construct();
             return View();
         }
 
         public ActionResult Contact()
         {
+            if (Session["UserID"] != null)
+                __construct();
             return View();
         }
     }

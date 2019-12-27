@@ -27,7 +27,14 @@
         @Html.Partial("~/Areas/Guest/Views/Shared/_Header.cshtml")
     </header>
     <div class="container body-content">
+        <div class="container headerNav">
+
+            <div class="navigation hidden-xs">
+                @Html.Partial("~/Areas/Guest/Views/Shared/_Navbar.cshtml")
+            </div>
+        </div>
         @RenderBody()
+        
     </div>
     
     <footer class="footer">

@@ -53,20 +53,6 @@ body {
         transition: font-size 0.3s ease, background-color 0.3s ease;
     }
 
-    #layout_body nav ol {
-        margin-left: 15px;
-        list-style: none;
-    }
-
-        #layout_body nav ol > li {
-            height: 30px;
-            font-size: 16px
-        }
-
-        #layout_body nav ol>li a:hover {
-            font-size: 18px
-        }
-
     #layout_body nav ul li:last-child {
         border: none;
     }

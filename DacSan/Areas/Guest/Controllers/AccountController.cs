@@ -11,14 +11,28 @@ namespace DacSan.Areas.Guest.Controllers
 {
     public class AccountController : Controller
     {
+        private void __construct()
+        {
+            ViewBag.Title = "Trang Người dùng";
+            if (Session["UserID"] != null)
+            {
+                ViewBag.UserID = Session["UserID"];
+                ViewBag.UserName = Session["UserName"];
+                ViewBag.UserRole = Session["UserRole"];
+            }
+        }
         // GET: Guest/Account
         public ActionResult Index()
         {
+            if (Session["UserID"] != null)
+                __construct();
             return View();
         }
 
         public ActionResult Login()
         {
+            if (Session["UserID"] != null)
+                __construct();
             if (Session["UserID"] != null)
                 return RedirectToAction("Index", "Home");
             return View();
@@ -49,6 +63,8 @@ namespace DacSan.Areas.Guest.Controllers
 
         public ActionResult Register()
         {
+            if (Session["UserID"] != null)
+                __construct();
             if (Session["UserID"] != null)
                 return RedirectToAction("Index", "Home");
             return View();
@@ -84,6 +100,8 @@ namespace DacSan.Areas.Guest.Controllers
 
         public ActionResult ResetPassword()
         {
+            if (Session["UserID"] != null)
+                __construct();
             if (Session["UserID"] == null)
             {
                 TempData["Error"] = "Bạn chưa đăng nhập";
@@ -94,6 +112,8 @@ namespace DacSan.Areas.Guest.Controllers
 
         public ActionResult Info()
         {
+            if (Session["UserID"] != null)
+                __construct();
             if (Session["UserID"] == null)
             {
                 TempData["Error"] = "Bạn chưa đăng nhập";
@@ -106,6 +126,8 @@ namespace DacSan.Areas.Guest.Controllers
 
         public ActionResult Logout()
         {
+            if (Session["UserID"] != null)
+                __construct();
             if (Session["UserID"] == null)
             {
                 TempData["Error"] = "Bạn chưa đăng nhập";
