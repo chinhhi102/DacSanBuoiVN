@@ -121,9 +121,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\Admin\Models\ResetPassword.cs" />
+    <Compile Include="Areas\Admin\Models\ResetPasswordModel.cs" />
     <Compile Include="Areas\Admin\Models\UserLoginModel.cs" />
     <Compile Include="Areas\Guest\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Guest\Controllers\CartController.cs" />
     <Compile Include="Areas\Guest\Controllers\HomeController.cs" />
     <Compile Include="Areas\Guest\Controllers\ProductController.cs" />
     <Compile Include="Areas\Guest\GuestAreaRegistration.cs" />
@@ -133,8 +134,12 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Guest\GuestAuthorization.cs" />
-    <Compile Include="Areas\Guest\Models\ResetPassword.cs" />
+    <Compile Include="Areas\Guest\Models\InfoGuestModel.cs" />
+    <Compile Include="Areas\Guest\Models\LienHeModel.cs" />
+    <Compile Include="Areas\Guest\Models\ResetPasswordModel.cs" />
     <Compile Include="Areas\Guest\Models\UserLoginModel.cs" />
+    <Compile Include="Models\ItemModel.cs" />
+    <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\UsersModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -1422,7 +1427,6 @@
     <Content Include="Areas\Guest\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Guest\Views\Shared\_Navbar.cshtml" />
     <Content Include="Areas\Guest\Views\Shared\Error.cshtml" />
-    <Content Include="Areas\Guest\Views\Home\Lienhe.cshtml" />
     <Content Include="Areas\Guest\Views\Home\Index.cshtml" />
     <Content Include="Areas\Guest\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Guest\Views\Shared\_LeftNavbar.cshtml" />
@@ -1449,6 +1453,14 @@
     <Content Include="Areas\Guest\Views\Product\Index.cshtml" />
     <Content Include="Areas\Guest\Views\Home\News.cshtml" />
     <Content Include="Areas\Guest\Views\Home\Contact.cshtml" />
+    <Content Include="Areas\Guest\Views\Product\_ProductLayout.cshtml" />
+    <Content Include="Areas\Guest\Views\Product\Details.cshtml" />
+    <Content Include="Areas\Guest\Views\Product\Categories.cshtml" />
+    <Content Include="Areas\Guest\Views\Home\NewsDetails.cshtml" />
+    <Content Include="Areas\Guest\Views\Cart\Index.cshtml" />
+    <Content Include="Areas\Guest\Views\Cart\InfoGuest.cshtml" />
+    <Content Include="Areas\Guest\Views\Cart\InfoPay.cshtml" />
+    <Content Include="Areas\Guest\Views\Cart\Complete.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Guest.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -1479,6 +1491,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

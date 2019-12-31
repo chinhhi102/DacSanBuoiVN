@@ -14,6 +14,7 @@ namespace DacSan.Areas.Admin.Models
 
         [Display(Name = "Mật khẩu")]
         [Required(ErrorMessage = "Bạn cần phải nhập mật khẩu")]
+        [RegularExpression("^[a-zA-Z0-9!@#$%^&*]+$", ErrorMessage = "Mật khẩu không hợp lệ")]
         public string Password { get; set; }
     }
 }

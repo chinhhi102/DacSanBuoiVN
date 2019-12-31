@@ -12,5 +12,7 @@ namespace DataLibrary.Models
         public string MoTa { get; set; }
         public int LoaiSPID { get; set; }
         public int DiaChiID { get; set; }
+        public float DonGia { get; set; }
+        public string ImagePath { get; set; }
     }
 }

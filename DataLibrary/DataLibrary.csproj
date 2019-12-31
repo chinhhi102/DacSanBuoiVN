@@ -45,13 +45,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\CartDetailProcessor.cs" />
+    <Compile Include="BusinessLogic\CartProcessor.cs" />
     <Compile Include="BusinessLogic\DiaChiProcessor.cs" />
+    <Compile Include="BusinessLogic\GuestProcessor.cs" />
+    <Compile Include="BusinessLogic\ImageProcessor.cs" />
     <Compile Include="BusinessLogic\LoaiSPProcessor.cs" />
+    <Compile Include="BusinessLogic\OrderDetailProcessor.cs" />
+    <Compile Include="BusinessLogic\OrderProcessor.cs" />
     <Compile Include="BusinessLogic\ProductProcessor.cs" />
     <Compile Include="BusinessLogic\UsersProcessor.cs" />
     <Compile Include="DataAccess\SqlDataAccess.cs" />
+    <Compile Include="Models\CartDetailModel.cs" />
+    <Compile Include="Models\CartModel.cs" />
     <Compile Include="Models\DiaChiModel.cs" />
+    <Compile Include="Models\GuestModel.cs" />
+    <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\LoaiSPModel.cs" />
+    <Compile Include="Models\OrderDetailModel.cs" />
+    <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\UsersModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

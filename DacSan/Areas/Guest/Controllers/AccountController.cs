@@ -5,7 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 using DacSan.Models;
 using DacSan.Areas.Guest.Models;
+using DataLibrary.Models;
 using static DataLibrary.BusinessLogic.UsersProcessor;
+using static DataLibrary.BusinessLogic.LoaiSPProcessor;
+using static DataLibrary.BusinessLogic.CartProcessor;
+using static DataLibrary.BusinessLogic.CartDetailProcessor;
+using static DataLibrary.BusinessLogic.ProductProcessor;
 
 namespace DacSan.Areas.Guest.Controllers
 {
@@ -14,25 +19,42 @@ namespace DacSan.Areas.Guest.Controllers
         private void __construct()
         {
             ViewBag.Title = "Trang Người dùng";
+            if (Session["cart"] != null)
+            {
+                ViewData["NumCart"] = ((List<ItemModel>)Session["cart"]).Count;
+            }
+            else
+            {
+                ViewData["NumCart"] = 0;
+            }
             if (Session["UserID"] != null)
             {
                 ViewBag.UserID = Session["UserID"];
                 ViewBag.UserName = Session["UserName"];
                 ViewBag.UserRole = Session["UserRole"];
+                List<ItemModel> list = new List<ItemModel>();
+                var listCart = LoadCartDetailByCartID((int)Session["CartID"]);
+                foreach (CartDetailModel cd in listCart)
+                {
+                    var product = LoadOneProduct(cd.SanPhamID);
+                    ItemModel item = new ItemModel() { SL = cd.SL, NgayThem = cd.NgayThem, Product = new DacSan.Models.ProductModel(product) };
+                    list.Add(item);
+                }
+                Session["cart"] = list;
             }
+            var loaisp = LoadLoaiSP(12);
+            ViewData["loaisp"] = loaisp;
         }
         // GET: Guest/Account
         public ActionResult Index()
         {
-            if (Session["UserID"] != null)
-                __construct();
+            __construct();
             return View();
         }
 
         public ActionResult Login()
         {
-            if (Session["UserID"] != null)
-                __construct();
+            __construct();
             if (Session["UserID"] != null)
                 return RedirectToAction("Index", "Home");
             return View();
@@ -44,12 +66,24 @@ namespace DacSan.Areas.Guest.Controllers
         {
             if (ModelState.IsValid)
             {
-                var GuestUser = GetUser(user.Username, user.Password);
+                var GuestUser = GetUser(user.Username, user.Password, 2);
                 if (GuestUser != null)
                 {
-                    Session["UserID"] = GuestUser.Id;
+                    Session["UserID"] = GuestUser.UserID;
                     Session["UserName"] = GuestUser.Username;
                     Session["UserRole"] = GuestUser.Role;
+                    var CartID = LoadOneCartByUser(GuestUser.UserID);
+                    int id;
+                    if(CartID == null)
+                    {
+                        id = CreateCart(GuestUser.UserID);
+                    }
+                    else
+                    {
+                        id = CartID.GioHangID;
+                    }
+                    Session["CartID"] = id;
+
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -63,8 +97,8 @@ namespace DacSan.Areas.Guest.Controllers
 
         public ActionResult Register()
         {
-            if (Session["UserID"] != null)
-                __construct();
+
+            __construct();
             if (Session["UserID"] != null)
                 return RedirectToAction("Index", "Home");
             return View();
@@ -72,7 +106,7 @@ namespace DacSan.Areas.Guest.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(UsersModel user)
+        public ActionResult Register(DacSan.Models.UsersModel user)
         {
             if (ModelState.IsValid)
             {
@@ -89,8 +123,10 @@ namespace DacSan.Areas.Guest.Controllers
                         TempData["Error"] = "Tài khoản đã được đăng ký";
                         return RedirectToAction("Register");
                     }
-                } catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
+                    Console.WriteLine(ex.ToString());
                     TempData["Error"] = "Đăng ký thất bại, Mất kết nối cơ sở dữ liệu";
                     return RedirectToAction("Register");
                 }
@@ -100,8 +136,8 @@ namespace DacSan.Areas.Guest.Controllers
 
         public ActionResult ResetPassword()
         {
-            if (Session["UserID"] != null)
-                __construct();
+
+            __construct();
             if (Session["UserID"] == null)
             {
                 TempData["Error"] = "Bạn chưa đăng nhập";
@@ -112,8 +148,8 @@ namespace DacSan.Areas.Guest.Controllers
 
         public ActionResult Info()
         {
-            if (Session["UserID"] != null)
-                __construct();
+
+            __construct();
             if (Session["UserID"] == null)
             {
                 TempData["Error"] = "Bạn chưa đăng nhập";
@@ -126,8 +162,8 @@ namespace DacSan.Areas.Guest.Controllers
 
         public ActionResult Logout()
         {
-            if (Session["UserID"] != null)
-                __construct();
+
+            __construct();
             if (Session["UserID"] == null)
             {
                 TempData["Error"] = "Bạn chưa đăng nhập";

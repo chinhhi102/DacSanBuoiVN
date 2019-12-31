@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[DiaChiNhanHang]
+﻿CREATE TABLE [dbo].[tbl_DiaChiNhanHang]
 (
 	[DiaChiNhanHangID] INT NOT NULL PRIMARY KEY IDENTITY, 
     [Huyen] NVARCHAR(50) NULL, 

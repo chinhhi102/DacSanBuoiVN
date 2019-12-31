@@ -9,7 +9,7 @@ namespace DacSan.Models
 {
     public class UsersModel
     {
-        public int Id { get; set; }
+        public int UserID { get; set; }
         
         [Display(Name = "Tài khoản")]
         [Required(ErrorMessage ="Bạn cần phải nhập tài khoản")]
@@ -17,7 +17,8 @@ namespace DacSan.Models
 
         [Display(Name = "Mật khẩu")]
         [DataType(DataType.Password)]
-        [StringLength(255, ErrorMessage = "Must be between 5 and 255 characters", MinimumLength = 5)]
+        [StringLength(255, ErrorMessage = "Mật khẩu ít nhất phải chứa ít nhất 5 kí tự", MinimumLength = 5)]
+        [RegularExpression("^[a-zA-Z0-9!@#$%^&*]+$", ErrorMessage = "Mật khẩu không hợp lệ")]
         public string Password { get; set; }
 
         [Display(Name = "Nhập lại mật khẩu")]
@@ -40,12 +41,12 @@ namespace DacSan.Models
 
         [Display(Name = "Số điện thoại")]
         [Required(ErrorMessage = "Bạn cần phải nhập số điện thoại")]
+        [RegularExpression("^[0-9]+$", ErrorMessage = "Số điện thoại không hợp lệ")]
         public string PhoneNumber { get; set; }
         public int Role { get; set; }
-
         public UsersModel(DataLibrary.Models.UsersModel _user)
         {
-            this.Id = _user.Id;
+            this.UserID = _user.UserID;
             this.Username = _user.Username;
             this.Password = _user.Password;
             this.FirstName = _user.FirstName;

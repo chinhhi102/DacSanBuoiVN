@@ -6,7 +6,7 @@ using System.Web;
 
 namespace DacSan.Areas.Guest.Models
 {
-    public class ResetPassword
+    public class ResetPasswordModel
     {   
         [Display(Name = "Mật khẩu cũ")]
         [Required(ErrorMessage = "Bạn cần phải nhập mật khẩu")]

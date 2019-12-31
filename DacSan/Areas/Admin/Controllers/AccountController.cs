@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using DacSan.Areas.Admin.Models;
 using DacSan.Models;
 using static DataLibrary.BusinessLogic.UsersProcessor;
+using static DataLibrary.BusinessLogic.CartProcessor;
 
 namespace DacSan.Areas.Admin.Controllers
 {
@@ -34,9 +35,20 @@ namespace DacSan.Areas.Admin.Controllers
                 var AdminUser = GetUser(user.Username, user.Password);
                 if (AdminUser != null)
                 {
-                    Session["UserID"] = AdminUser.Id;
+                    Session["UserID"] = AdminUser;
                     Session["UserName"] = AdminUser.Username;
                     Session["UserRole"] = AdminUser.Role;
+                    var CartID = LoadOneCartByUser(AdminUser.UserID);
+                    int id;
+                    if (CartID == null)
+                    {
+                        id = CreateCart(AdminUser.UserID);
+                    }
+                    else
+                    {
+                        id = CartID.GioHangID;
+                    }
+                    Session["CartID"] = id;
                     return RedirectToAction("Index", "Home");
                 }
                 else

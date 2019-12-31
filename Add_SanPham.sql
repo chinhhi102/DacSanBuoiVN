@@ -31,17 +31,32 @@ SELECT * FROM dbo.tbl_LoaiSP;
 -- Thêm sản phẩm
 TRUNCATE TABLE dbo.tbl_SanPham;
 
-INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi thường', '...', RAND()*(7-1)+1, RAND()*(7-1)+1);
-INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi VIP PRO', '...', RAND()*(7-1)+1, RAND()*(7-1)+1);
-INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi Royal', '...', RAND()*(7-1)+1, RAND()*(7-1)+1);
-INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi Đẳng cấp Số 1 Việt Nam', '...', RAND()*(7-1)+1, RAND()*(7-1)+1);
-INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi Internation', '...', RAND()*(7-1)+1, RAND()*(7-1)+1);
+INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi thường', '...', RAND()*(7-1)+1, RAND()*(7-1)+1, 100000);
+INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi VIP PRO', '...', RAND()*(7-1)+1, RAND()*(7-1)+1, 200000);
+INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi Royal', '...', RAND()*(7-1)+1, RAND()*(7-1)+1, 300000);
+INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi Đẳng cấp Số 1 Việt Nam', '...', RAND()*(7-1)+1, RAND()*(7-1)+1, 400000);
+INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi Internation', '...', RAND()*(7-1)+1, RAND()*(7-1)+1, 500000);
+INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi thường', '...', RAND()*(7-1)+1, RAND()*(7-1)+1, 100000);
+INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi VIP PRO', '...', RAND()*(7-1)+1, RAND()*(7-1)+1, 200000);
+INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi Royal', '...', RAND()*(7-1)+1, RAND()*(7-1)+1, 300000);
+INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi Đẳng cấp Số 1 Việt Nam', '...', RAND()*(7-1)+1, RAND()*(7-1)+1, 400000);
+INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi Internation', '...', RAND()*(7-1)+1, RAND()*(7-1)+1, 500000);
+INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi thường', '...', RAND()*(7-1)+1, RAND()*(7-1)+1, 100000);
+INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi VIP PRO', '...', RAND()*(7-1)+1, RAND()*(7-1)+1, 200000);
+INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi Royal', '...', RAND()*(7-1)+1, RAND()*(7-1)+1, 300000);
+INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi Đẳng cấp Số 1 Việt Nam', '...', RAND()*(7-1)+1, RAND()*(7-1)+1, 400000);
+INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi Internation', '...', RAND()*(7-1)+1, RAND()*(7-1)+1, 500000);
+INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi thường', '...', RAND()*(7-1)+1, RAND()*(7-1)+1, 100000);
+INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi VIP PRO', '...', RAND()*(7-1)+1, RAND()*(7-1)+1, 200000);
+INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi Royal', '...', RAND()*(7-1)+1, RAND()*(7-1)+1, 300000);
+INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi Đẳng cấp Số 1 Việt Nam', '...', RAND()*(7-1)+1, RAND()*(7-1)+1, 400000);
+INSERT INTO dbo.tbl_SanPham VALUES(N'Bưởi năm roi Internation', '...', RAND()*(7-1)+1, RAND()*(7-1)+1, 500000);
 
 
 SELECT * FROM dbo.tbl_SanPham;
 
 TRUNCATE TABLE dbo.tbl_Users;
 
-INSERT INTO dbo.tbl_SanPham VALUES('ad', 'ad', 'ad', 'ad', 'ad', 'ad', 2);
+INSERT INTO dbo.tbl_Users VALUES('ad', 'ad', 'ad', 'ad', 'ad', 'ad', 2);
 
 SELECT * FROM dbo.tbl_Users;

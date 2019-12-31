@@ -15,9 +15,16 @@ namespace DacSan.Areas.Admin.Controllers
             ViewBag.Title = "Trang Quản Trị";
             if (Session["UserID"] != null)
             {
-                ViewBag.UserID = Session["UserID"];
-                ViewBag.UserName = Session["UserName"];
-                ViewBag.UserRole = Session["UserRole"];
+                if ((int)Session["UserRole"] == 1)
+                {
+                    Session.Clear();
+                }
+                else
+                {
+                    ViewBag.UserID = Session["UserID"];
+                    ViewBag.UserName = Session["UserName"];
+                    ViewBag.UserRole = Session["UserRole"];
+                }
             } 
         }
 
@@ -25,9 +32,10 @@ namespace DacSan.Areas.Admin.Controllers
         // GET: Admin/Home
         public ActionResult Index()
         {
+            __construct();
             if (Session["UserID"] == null)
                 return RedirectToAction("Login", "Account");
-            __construct();
+
             return View();
         }
     }

@@ -30,5 +30,20 @@ namespace DataLibrary.DataAccess
                 return cnn.Execute(sql, data);
             }
         }
+        public static int DeleteData(string sql)
+        {
+            using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
+            {
+                return cnn.Execute(sql);
+            }
+        }
+        public static List<Object> GetScopeIdentity()
+        {
+            using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
+            {
+                string sql = @"SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY];";
+                return cnn.Query(sql).ToList();
+            }
+        }
     }
 }

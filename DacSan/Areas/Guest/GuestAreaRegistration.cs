@@ -20,6 +20,12 @@ namespace DacSan.Areas.Guest
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 new[] { "DacSan.Areas.Guest.Controllers" }
             );
+
+            context.MapRoute(
+                "Product",
+                "Product/{action}/{categoriesID}/{productID}",
+                new { controller = "Product", action = "Details", productID = UrlParameter.Optional }
+            );
         }
     }
 }

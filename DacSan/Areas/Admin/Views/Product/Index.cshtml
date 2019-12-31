@@ -5,7 +5,9 @@
 
 
         <h1>Quản Lý Sản Phẩm</h1>
-        <a href="/Admin/Product/Create"><button class="btn btn-info">Thêm Sản Phẩm</button></a>
+        <a href="/Admin/Product/Create">
+            <input class="btn btn-info" type="button" value="Thêm Sản Phẩm">
+        </a>
 
         <table class="table table-hover">
             <thead>
@@ -18,18 +20,26 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (ProductModel product in (IEnumerable<ProductModel>)ViewData["products"])
+                @if (ViewData["products"] == null)
                 {
-                    <tr>
-                        <td>@product.SanPhamID</td>
-                        <td>@product.TenSP</td>
-                        <td>800,000đ</td>
-                        <td>Đã bán <span class="label label-success">5 / 10</span></td>
-                        <td>
-                            <a href="#"><span class="label label-warning">Sửa</span></a>&nbsp;
-                            <a href="#"><span class="label label-danger" onclick="return confirm('Bạn có muốn xoá tài khoản này ?')">Xoá</span></a>
-                        </td>
-                    </tr>
+                    <div class="alert alert-info">Hiện không có sản phẩm nào</div>
+                }
+                else
+                {
+                    foreach (ProductModel product in (IEnumerable<ProductModel>)ViewData["products"])
+                    {
+                        <tr>
+                            <td>@product.SanPhamID</td>
+                            <td>@product.TenSP</td>
+                            <td>800,000đ</td>
+                            <td>Đã bán <span class="label label-success">5 / 10</span></td>
+                            <td>
+                                <a href="#"><span class="label label-warning">Sửa</span></a>&nbsp;
+                                <a href="#"><span class="label label-danger" onclick="return confirm('Bạn có muốn xoá tài khoản này ?')">Xoá</span></a>
+                            </td>
+                        </tr>
+                    }
+
                 }
             </tbody>
         </table>
@@ -43,9 +53,6 @@
                 <li><a href="#">5</a></li>
             </ul>
         </div>
-
-
-
     </div>
     <div class="col-md-4">
         <a href="#" class="list-group-item active">Menu</a>

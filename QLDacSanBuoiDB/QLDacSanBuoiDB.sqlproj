@@ -66,13 +66,15 @@
     <Build Include="dbo\Table\tbl_SanPham.sql" />
     <Build Include="dbo\Table\tbl_LoaiSP.sql" />
     <Build Include="dbo\Table\tbl_DiaChi.sql" />
-    <Build Include="dbo\Table\tbl_GiaSP.sql" />
     <Build Include="dbo\Table\tbl_ChiTietGioHang.sql" />
     <Build Include="dbo\Table\tbl_GioHang.sql" />
     <Build Include="dbo\Table\tbl_DonDatHang.sql" />
     <Build Include="dbo\Table\tbl_ChiTietDonDatHang.sql" />
     <Build Include="dbo\Table\tbl_KhachHang.sql" />
     <Build Include="dbo\Table\tbl_DiaChiNhanHang.sql" />
+    <Build Include="dbo\Table\tbl_LienHe.sql" />
+    <Build Include="dbo\Table\tbl_Images.sql" />
+    <Build Include="dbo\Table\tbl_TinTuc.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="QLDacSanBuoiDB.refactorlog" />

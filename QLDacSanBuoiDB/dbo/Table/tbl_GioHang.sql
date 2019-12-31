@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[tbl_GioHang]
 (
-	[GioHangID] INT NOT NULL PRIMARY KEY, 
+	[GioHangID] INT NOT NULL PRIMARY KEY IDENTITY, 
     [UserID] INT NOT NULL
 )

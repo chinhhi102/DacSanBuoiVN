@@ -7,6 +7,8 @@ using DataLibrary.Models;
 using static DataLibrary.BusinessLogic.ProductProcessor;
 using static DataLibrary.BusinessLogic.LoaiSPProcessor;
 using static DataLibrary.BusinessLogic.DiaChiProcessor;
+using static DataLibrary.BusinessLogic.ImageProcessor;
+using System.IO;
 
 namespace DacSan.Areas.Admin.Controllers
 {
@@ -15,6 +17,8 @@ namespace DacSan.Areas.Admin.Controllers
         // GET: Admin/Product
         public ActionResult Index()
         {
+            if (Session["UserID"] == null)
+                return RedirectToAction("Index", "Home");
             var products = LoadProducts();
             ViewBag.Title = "Quản Lý Sản Phẩm";
             ViewData["products"] = products;
@@ -25,12 +29,16 @@ namespace DacSan.Areas.Admin.Controllers
         // GET: Admin/Product/Details/5
         public ActionResult Details(int id)
         {
+            if (Session["UserID"] == null)
+                return RedirectToAction("Index", "Home");
             return View();
         }
 
         // GET: Admin/Product/Create
         public ActionResult Create()
         {
+            if (Session["UserID"] == null)
+                return RedirectToAction("Index", "Home");
             var loaisp = LoadLoaiSP();
             ViewData["loaisp"] = loaisp;
             var diachi = LoadDiaChi();
@@ -41,15 +49,33 @@ namespace DacSan.Areas.Admin.Controllers
 
         // POST: Admin/Product/Create
         [HttpPost]
-        public ActionResult Create(ProductModel product)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(DacSan.Models.ProductModel product)
         {
             try
             {
-                CreateProduct(product.TenSP, product.MoTa, product.LoaiSPID, product.DiaChiID);
+                var loaisp = LoadLoaiSP();
+                ViewData["loaisp"] = loaisp;
+                var diachi = LoadDiaChi();
+                ViewData["diachi"] = diachi;
+                if (product.ImageFile == null)
+                {
+                    CreateProduct(product.TenSP, product.MoTa, product.LoaiSPID, product.DiaChiID, product.DonGia, null);
+                }
+                else
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
+                    string extension = Path.GetExtension(product.ImageFile.FileName);
+                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                    product.ImagePath = "/Images/" + fileName;
+                    product.ImageFile.SaveAs(Path.Combine(Server.MapPath("~/Images/"), fileName));
+                    CreateProduct(product.TenSP, product.MoTa, product.LoaiSPID, product.DiaChiID, product.DonGia, product.ImagePath);
+                }
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
+                TempData["Error"] = ex.ToString();
                 return View();
             }
         }
@@ -57,6 +83,8 @@ namespace DacSan.Areas.Admin.Controllers
         // GET: Admin/Product/Edit/5
         public ActionResult Edit(int id)
         {
+            if (Session["UserID"] == null)
+                return RedirectToAction("Index", "Home");
             return View();
         }
 
@@ -79,6 +107,8 @@ namespace DacSan.Areas.Admin.Controllers
         // GET: Admin/Product/Delete/5
         public ActionResult Delete(int id)
         {
+            if (Session["UserID"] == null)
+                return RedirectToAction("Index", "Home");
             return View();
         }
 
