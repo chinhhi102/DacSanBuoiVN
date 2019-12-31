@@ -17,33 +17,29 @@ namespace DacSan.Areas.Guest.Controllers
         private void __construct()
         {
             ViewBag.Title = "Trang Người dùng";
-            Session["CurProduct"] = null;
-            if(Session["cart"] != null)
-            {
-                ViewData["NumCart"] = ((List<ItemModel>)Session["cart"]).Count;
-            }
-            else
-            {
-                ViewData["NumCart"] = 0;
-            }
-            if (Session["UserID"] != null)
-            {
-                ViewBag.UserID = Session["UserID"];
-                ViewBag.UserName = Session["UserName"];
-                ViewBag.UserRole = Session["UserRole"];
-                List<ItemModel> list = new List<ItemModel>();
-                var listCart = LoadCartDetailByCartID((int)Session["CartID"]);
-                foreach(CartDetailModel cd in listCart)
-                {
-                    var product = LoadOneProduct(cd.SanPhamID);
-                    ItemModel item = new ItemModel() { SL = cd.SL, NgayThem = cd.NgayThem, Product = new DacSan.Models.ProductModel(product) };
-                    list.Add(item);
-                }
-                Session["cart"] = list;
-            }
             try
             {
-                var loaisp = LoadLoaiSP();
+                Session["CurProduct"] = null;
+                if (Session["UserID"] != null)
+                {
+                    ViewBag.UserID = Session["UserID"];
+                    ViewBag.UserName = Session["UserName"];
+                    ViewBag.UserRole = Session["UserRole"];
+                    List<ItemModel> list = new List<ItemModel>();
+                    var listCart = LoadCartDetailByCartID((int)Session["CartID"]);
+                    foreach (CartDetailModel cd in listCart)
+                    {
+                        var product = LoadOneProduct(cd.SanPhamID);
+                        if (product != null)
+                        {
+                            ItemModel item = new ItemModel() { SL = cd.SL, NgayThem = cd.NgayThem, Product = new DacSan.Models.ProductModel(product) };
+                            list.Add(item);
+                        }
+                    }
+                    Session["cart"] = list;
+                }
+
+                var loaisp = LoadLoaiSP(12);
                 ViewData["loaisp"] = loaisp;
                 foreach (LoaiSPModel loai in (IEnumerable<LoaiSPModel>)ViewData["loaisp"])
                 {
@@ -51,6 +47,14 @@ namespace DacSan.Areas.Guest.Controllers
                 }
                 var spnb = LoadProducts(3);
                 ViewData["spnb"] = spnb;
+                if (Session["cart"] != null)
+                {
+                    ViewData["NumCart"] = ((List<ItemModel>)Session["cart"]).Count;
+                }
+                else
+                {
+                    ViewData["NumCart"] = 0;
+                }
             }
             catch (Exception ex)
             {
@@ -72,10 +76,13 @@ namespace DacSan.Areas.Guest.Controllers
                     GioHangID = check.GioHangID;
                 }
                 RemoveAllCartDetail(GioHangID);
-                List<ItemModel> cart = (List<ItemModel>)Session["cart"];
-                foreach (ItemModel item in cart)
+                if (Session["cart"] != null)
                 {
-                    CreateCartDetail((int)Session["UserID"], item.SL, item.Product.DonGia, GioHangID, item.NgayThem);
+                    List<ItemModel> cart = (List<ItemModel>)Session["cart"];
+                    foreach (ItemModel item in cart)
+                    {
+                        CreateCartDetail(item.Product.ProductID, item.SL, item.Product.DonGia, GioHangID, item.NgayThem);
+                    }
                 }
             }
         }

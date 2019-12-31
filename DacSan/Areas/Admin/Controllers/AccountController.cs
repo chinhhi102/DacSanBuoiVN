@@ -35,7 +35,7 @@ namespace DacSan.Areas.Admin.Controllers
                 var AdminUser = GetUser(user.Username, user.Password);
                 if (AdminUser != null)
                 {
-                    Session["UserID"] = AdminUser;
+                    Session["UserID"] = AdminUser.UserID;
                     Session["UserName"] = AdminUser.Username;
                     Session["UserRole"] = AdminUser.Role;
                     var CartID = LoadOneCartByUser(AdminUser.UserID);

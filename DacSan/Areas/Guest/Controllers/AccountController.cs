@@ -19,31 +19,46 @@ namespace DacSan.Areas.Guest.Controllers
         private void __construct()
         {
             ViewBag.Title = "Trang Người dùng";
-            if (Session["cart"] != null)
+            try
             {
-                ViewData["NumCart"] = ((List<ItemModel>)Session["cart"]).Count;
-            }
-            else
-            {
-                ViewData["NumCart"] = 0;
-            }
-            if (Session["UserID"] != null)
-            {
-                ViewBag.UserID = Session["UserID"];
-                ViewBag.UserName = Session["UserName"];
-                ViewBag.UserRole = Session["UserRole"];
-                List<ItemModel> list = new List<ItemModel>();
-                var listCart = LoadCartDetailByCartID((int)Session["CartID"]);
-                foreach (CartDetailModel cd in listCart)
+                if (Session["UserID"] != null)
                 {
-                    var product = LoadOneProduct(cd.SanPhamID);
-                    ItemModel item = new ItemModel() { SL = cd.SL, NgayThem = cd.NgayThem, Product = new DacSan.Models.ProductModel(product) };
-                    list.Add(item);
+                    ViewBag.UserID = Session["UserID"];
+                    ViewBag.UserName = Session["UserName"];
+                    ViewBag.UserRole = Session["UserRole"];
+                    List<ItemModel> list = new List<ItemModel>();
+                    var listCart = LoadCartDetailByCartID((int)Session["CartID"]);
+                    foreach (CartDetailModel cd in listCart)
+                    {
+                        var product = LoadOneProduct(cd.SanPhamID);
+                        if (product != null)
+                        {
+                            ItemModel item = new ItemModel() { SL = cd.SL, NgayThem = cd.NgayThem, Product = new DacSan.Models.ProductModel(product) };
+                            list.Add(item);
+                        }
+                    }
+                    Session["cart"] = list;
                 }
-                Session["cart"] = list;
+                var loaisp = LoadLoaiSP(12);
+                ViewData["loaisp"] = loaisp;
+                foreach (LoaiSPModel loai in (IEnumerable<LoaiSPModel>)ViewData["loaisp"])
+                {
+                    var listsp = LoadProductByCate(loai.LoaiSPID, 6);
+                    ViewData[loai.LoaiSPID.ToString()] = listsp;
+                }
+                if (Session["cart"] != null)
+                {
+                    ViewData["NumCart"] = ((List<ItemModel>)Session["cart"]).Count;
+                }
+                else
+                {
+                    ViewData["NumCart"] = 0;
+                }
             }
-            var loaisp = LoadLoaiSP(12);
-            ViewData["loaisp"] = loaisp;
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
         // GET: Guest/Account
         public ActionResult Index()

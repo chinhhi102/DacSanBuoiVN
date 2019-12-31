@@ -18,14 +18,6 @@ namespace DacSan.Areas.Guest.Controllers
             ViewBag.Title = "Trang Người dùng";
             try
             {
-                if (Session["cart"] != null)
-                {
-                    ViewData["NumCart"] = ((List<ItemModel>)Session["cart"]).Count;
-                }
-                else
-                {
-                    ViewData["NumCart"] = 0;
-                }
                 if (Session["UserID"] != null)
                 {
                     ViewBag.UserID = Session["UserID"];
@@ -36,8 +28,11 @@ namespace DacSan.Areas.Guest.Controllers
                     foreach (CartDetailModel cd in listCart)
                     {
                         var product = LoadOneProduct(cd.SanPhamID);
-                        ItemModel item = new ItemModel() { SL = cd.SL, NgayThem = cd.NgayThem, Product = new DacSan.Models.ProductModel(product) };
-                        list.Add(item);
+                        if (product != null)
+                        {
+                            ItemModel item = new ItemModel() { SL = cd.SL, NgayThem = cd.NgayThem, Product = new DacSan.Models.ProductModel(product) };
+                            list.Add(item);
+                        }
                     }
                     Session["cart"] = list;
                 }
@@ -48,6 +43,14 @@ namespace DacSan.Areas.Guest.Controllers
                 {
                     var listsp = LoadProductByCate(loai.LoaiSPID, 6);
                     ViewData[loai.LoaiSPID.ToString()] = listsp;
+                }
+                if (Session["cart"] != null)
+                {
+                    ViewData["NumCart"] = ((List<ItemModel>)Session["cart"]).Count;
+                }
+                else
+                {
+                    ViewData["NumCart"] = 0;
                 }
             }
             catch (Exception ex)

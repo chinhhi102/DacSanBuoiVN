@@ -56,7 +56,7 @@ namespace DataLibrary.BusinessLogic
 
         public static UsersModel GetUser(string _username, string _password)
         {
-            string sql = String.Format("SELECT Username, Password, FirstName, LastName, EmailAddress, PhoneNumber, Role from dbo.tbl_Users WHERE Username = '{0}' AND Password = '{1}' ", _username, _password);
+            string sql = String.Format("SELECT * from dbo.tbl_Users WHERE Username = '{0}' AND Password = '{1}' ", _username, _password);
             List<UsersModel> user = SqlDataAccess.LoadData<UsersModel>(sql);
 
             System.Diagnostics.Debug.WriteLine(sql);
@@ -69,7 +69,7 @@ namespace DataLibrary.BusinessLogic
 
         public static UsersModel GetUser(string _username, string _password, int isAdmin = 1)
         {
-            string sql = String.Format("SELECT Username, Password, FirstName, LastName, EmailAddress, PhoneNumber, Role from dbo.tbl_Users WHERE Username = '{0}' AND Password = '{1}' AND Role >= {2}", _username, _password, isAdmin);
+            string sql = String.Format("SELECT * from dbo.tbl_Users WHERE Username = '{0}' AND Password = '{1}' AND Role >= {2}", _username, _password, isAdmin);
             List<UsersModel> user = SqlDataAccess.LoadData<UsersModel>(sql);
 
             System.Diagnostics.Debug.WriteLine(sql);
