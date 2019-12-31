@@ -85,17 +85,42 @@ namespace DacSan.Areas.Admin.Controllers
         {
             if (Session["UserID"] == null)
                 return RedirectToAction("Index", "Home");
+            var loaisp = LoadLoaiSP();
+            ViewData["loaisp"] = loaisp;
+            var diachi = LoadDiaChi();
+            ViewData["diachi"] = diachi;
+            ViewBag.Title = "Sửa Sản Phẩm";
+            var sp = LoadOneProduct(id);
+            ViewData["sp"] = new DacSan.Models.ProductModel(sp);
+            ViewData["EditID"] = id;
             return View();
         }
 
         // POST: Admin/Product/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(DacSan.Models.ProductModel product)
         {
             try
             {
                 // TODO: Add update logic here
-
+                var loaisp = LoadLoaiSP();
+                ViewData["loaisp"] = loaisp;
+                var diachi = LoadDiaChi();
+                ViewData["diachi"] = diachi;
+                if (product.ImageFile == null)
+                {
+                    UpdateProdcut(product.ProductID, product.TenSP, product.MoTa, product.LoaiSPID, product.DiaChiID, product.DonGia);
+                }
+                else
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
+                    string extension = Path.GetExtension(product.ImageFile.FileName);
+                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                    product.ImagePath = "/Images/" + fileName;
+                    product.ImageFile.SaveAs(Path.Combine(Server.MapPath("~/Images/"), fileName));
+                    UpdateProdcut(product.ProductID, product.TenSP, product.MoTa, product.LoaiSPID, product.DiaChiID, product.DonGia, product.ImagePath);
+                }
                 return RedirectToAction("Index");
             }
             catch

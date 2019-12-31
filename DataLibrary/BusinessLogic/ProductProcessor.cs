@@ -29,7 +29,40 @@ namespace DataLibrary.BusinessLogic
             System.Diagnostics.Debug.WriteLine(sql);
             return SqlDataAccess.SaveData(sql, data);
         }
-
+        public static int UpdateProdcut(int _SanPhamID, string _TenSP, string _Mota, int _LoaiSPID, int _DiaChiID, float _DonGia, string _ImagePath = "none")
+        {
+            if(_ImagePath == "none")
+            {
+                ProductModel data = new ProductModel
+                {
+                    SanPhamID = _SanPhamID,
+                    TenSP = _TenSP,
+                    MoTa = _Mota,
+                    LoaiSPID = _LoaiSPID,
+                    DiaChiID = _DiaChiID,
+                    DonGia = _DonGia
+                };
+                string sql = @"UPDATE dbo.tbl_SanPham SET TenSP = @TenSP, MoTa = @MoTa, LoaiSPID = @LoaiSPID, DiaChiID = @DiaChiID, DonGia = @DonGia WHERE SanPhamID = @SanPhamID";
+                System.Diagnostics.Debug.WriteLine(sql);
+                return SqlDataAccess.SaveData(sql, data);
+            }
+            else
+            {
+                ProductModel data = new ProductModel
+                {
+                    SanPhamID = _SanPhamID,
+                    TenSP = _TenSP,
+                    MoTa = _Mota,
+                    LoaiSPID = _LoaiSPID,
+                    DiaChiID = _DiaChiID,
+                    DonGia = _DonGia,
+                    ImagePath = _ImagePath
+                };
+                string sql = @"UPDATE dbo.tbl_SanPham SET TenSP = @TenSP, MoTa = @MoTa, LoaiSPID = @LoaiSPID, DiaChiID = @DiaChiID, DonGia = @DonGia, ImagePath = @ImagePath WHERE SanPhamID = @SanPhamID";
+                System.Diagnostics.Debug.WriteLine(sql);
+                return SqlDataAccess.SaveData(sql, data);
+            }
+        }
         public static List<ProductModel> LoadProducts()
         {
             string sql = @"SELECT * FROM dbo.tbl_SanPham";

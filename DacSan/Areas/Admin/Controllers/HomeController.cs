@@ -35,7 +35,6 @@ namespace DacSan.Areas.Admin.Controllers
             __construct();
             if (Session["UserID"] == null)
                 return RedirectToAction("Login", "Account");
-
             return View();
         }
     }
