@@ -16,7 +16,7 @@ namespace DacSan.Areas.Guest
         {
             context.MapRoute(
                 "Guest_Default",
-                "{controller}/{action}/{id}",
+                "Guest/{controller}/{action}/{id}",
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 new[] { "DacSan.Areas.Guest.Controllers" }
             );

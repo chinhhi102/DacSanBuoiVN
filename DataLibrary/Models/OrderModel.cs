@@ -8,8 +8,9 @@ namespace DataLibrary.Models
 {
     public class OrderModel
     {
-        public int DongDatHangID { get; set; }
+        public int DonDatHangID { get; set; }
         public int KhachHangID { get; set; }
         public int LoaiKhachHang { get; set; }
+        public int TrangThai { get; set; }
     }
 }

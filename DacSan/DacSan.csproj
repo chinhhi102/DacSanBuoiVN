@@ -121,6 +121,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
     <Compile Include="Areas\Admin\Models\ResetPasswordModel.cs" />
     <Compile Include="Areas\Admin\Models\UserLoginModel.cs" />
     <Compile Include="Areas\Guest\Controllers\AccountController.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="Areas\Guest\Models\LienHeModel.cs" />
     <Compile Include="Areas\Guest\Models\ResetPasswordModel.cs" />
     <Compile Include="Areas\Guest\Models\UserLoginModel.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\ItemModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\UsersModel.cs" />
@@ -1495,7 +1497,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Test\" />
     <Folder Include="Images\" />
+    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

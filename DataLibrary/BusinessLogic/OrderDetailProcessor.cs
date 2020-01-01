@@ -16,6 +16,12 @@ namespace DataLibrary.BusinessLogic
             System.Diagnostics.Debug.WriteLine(sql);
             return SqlDataAccess.LoadData<OrderDetailModel>(sql);
         }
+        public static List<OrderDetailModel> LoadOrderDetailByOrderID(int OrderID)
+        {
+            string sql = String.Format("SELECT * FROM dbo.tbl_ChiTietDonDatHang WHERE DonDatHangID = {0}", OrderID);
+            System.Diagnostics.Debug.WriteLine(sql);
+            return SqlDataAccess.LoadData<OrderDetailModel>(sql);
+        }
         public static List<OrderDetailModel> LoadOrderDetail(int num)
         {
             string sql = String.Format("SELECT TOP ({0}) * FROM dbo.tbl_ChiTietDonDatHang", num);

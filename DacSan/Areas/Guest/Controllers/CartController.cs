@@ -157,7 +157,7 @@ namespace DacSan.Areas.Guest.Controllers
                         loai = 2;
                         KhachHangID = (int)Session["UserID"];
                     }
-                    var DonHangID = CreateOrder(KhachHangID, loai);
+                    var DonHangID = CreateOrder(KhachHangID, loai, 1);
                     foreach (ItemModel item in (List<ItemModel>)Session["cart"])
                     {
                         CreateOrderDetail(item.Product.ProductID, item.SL, item.Product.DonGia, DonHangID, DateTime.Now);

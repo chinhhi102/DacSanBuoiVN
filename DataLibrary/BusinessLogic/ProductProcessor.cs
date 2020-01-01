@@ -63,6 +63,13 @@ namespace DataLibrary.BusinessLogic
                 return SqlDataAccess.SaveData(sql, data);
             }
         }
+
+        public static int DeleteProduct(int SanPhamID)
+        {
+            string sql = String.Format("DELETE FROM dbo.tbl_SanPham WHERE SanPhamID = {0}", SanPhamID);
+            System.Diagnostics.Debug.WriteLine(sql);
+            return SqlDataAccess.DeleteData(sql);
+        }
         public static List<ProductModel> LoadProducts()
         {
             string sql = @"SELECT * FROM dbo.tbl_SanPham";

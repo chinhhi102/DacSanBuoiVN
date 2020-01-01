@@ -36,15 +36,22 @@ namespace DataLibrary.BusinessLogic
                 return null;
             }
         }
-        public static int CreateOrder(int _KhachHangID, int _LoaiKhachHang)
+        public static int DeleteOrder(int DonDatHangID)
+        {
+            string sql = String.Format("DELETE FROM dbo.tbl_DonDatHang WHERE DonDatHangID = {0}", DonDatHangID);
+            System.Diagnostics.Debug.WriteLine(sql);
+            return SqlDataAccess.DeleteData(sql);
+        }
+        public static int CreateOrder(int _KhachHangID, int _LoaiKhachHang, int _TrangThai)
         {
             OrderModel data = new OrderModel
             {
                 KhachHangID = _KhachHangID,
-                LoaiKhachHang = _LoaiKhachHang
+                LoaiKhachHang = _LoaiKhachHang,
+                TrangThai = _TrangThai
             };
-            string sql = @"insert into dbo.tbl_DonDatHang (KhachHangID, LoaiKhachHang)
-                            values(@KhachHangID, @LoaiKhachHang)";
+            string sql = @"insert into dbo.tbl_DonDatHang (KhachHangID, LoaiKhachHang, TrangThai)
+                            values(@KhachHangID, @LoaiKhachHang, @TrangThai)";
             System.Diagnostics.Debug.WriteLine(sql);
             return SqlDataAccess.SaveData(sql, data);
         }
