@@ -15,6 +15,13 @@ namespace DacSan.Areas.Guest
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
+                "Default",
+                "",
+                new { controller = "Home", action = "Index"},
+                new[] { "DacSan.Areas.Guest.Controllers" }
+            );
+
+            context.MapRoute(
                 "Guest_Default",
                 "Guest/{controller}/{action}/{id}",
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional },
@@ -23,7 +30,7 @@ namespace DacSan.Areas.Guest
 
             context.MapRoute(
                 "Product",
-                "Product/{action}/{categoriesID}/{productID}",
+                "Guest/Product/{action}/{categoriesID}/{productID}",
                 new { controller = "Product", action = "Details", productID = UrlParameter.Optional }
             );
         }

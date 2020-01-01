@@ -16,7 +16,7 @@
                 </li>
                 <li><i class="fa fa-chevron-right"></i></li>
                 <li>
-                    <a href="/Cart">Thông tin giỏ hàng</a>
+                    <a href="/Guest/Cart">Thông tin giỏ hàng</a>
                 </li>
             </ul><!-- End .ul-breacrum -->
 
@@ -83,7 +83,7 @@
                                 <tr>
                                     <td align="center" width="5%">@i</td>
                                     <td>
-                                        <a href="/Product/Details/@item.Product.LoaiSPID/@item.Product.ProductID">
+                                        <a href="/Guest/Product/Details/@item.Product.LoaiSPID/@item.Product.ProductID">
                                             <img src="@item.Product.ImagePath" alt="bo hong kem s1455" width="80" height="80">
                                         </a>
                                     </td>
@@ -91,7 +91,7 @@
                                         <ul class="ul-tt-aldh">
                                             <li>
                                                 <h4>
-                                                    <a href="/Product/Details/@item.Product.LoaiSPID/@item.Product.ProductID">
+                                                    <a href="/Guest/Product/Details/@item.Product.LoaiSPID/@item.Product.ProductID">
                                                         @item.Product.TenSP
                                                     </a>
                                                 </h4>
@@ -113,7 +113,7 @@
                                         </span>
                                     </td>
                                     <td align="center">
-                                        <form id="myform" method="post" action="/Cart/Remove?id=@item.Product.ProductID">
+                                        <form id="myform" method="post" action="/Guest/Cart/Remove?id=@item.Product.ProductID">
                                             <a class="del_giohang" onclick="return confirm('Are you sure you want to delete this item?') ? document.getElementById('myform').submit() : false;"><i class="fa fa-trash"></i></a>
                                         </form>
                                     </td>
@@ -133,7 +133,7 @@
                             </tr>
                             <tr class="row_info_gh">
                                 <td colspan="6" align="right">
-                                    <a class="next_info_gh" href="/Cart/InfoGuest">
+                                    <a class="next_info_gh" href="/Guest/Cart/InfoGuest">
                                         Bước tiếp theo
                                     </a>
                                 </td>
@@ -148,14 +148,3 @@
         }
     </div><!-- End .f_quanly -->
 </section>
-
-<script>
-    function myFunction(i) {
-        var total = document.getElementsByClassName("gia_update")[i].value;
-        var sl = document.getElementsByClassName("ipt_sl")[i].value;
-        var Dongia = document.getElementsByClassName("ipt_dongia")[i].value;
-        var Tong = document.getElementById("gh_tong").value;
-        Dongia.innerHTML = total * sl;
-        var 
-    }
-</script>

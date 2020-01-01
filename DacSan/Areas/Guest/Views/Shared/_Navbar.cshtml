@@ -1,5 +1,4 @@
 ﻿@using DataLibrary.Models
-@model DataLibrary.Models.ProductModel
 
 <nav class="navbar" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -10,9 +9,9 @@
     <div class="collapse navbar-collapse" id="navbar-main" data-hover="dropdown" data-animations="fadeInUp fadeInRight fadeInUp fadeInLeft" aria-expanded="true">
         <ul class="nav navbar-nav navbar-center">
             <li class=""><a href="/">Trang chủ</a></li>
-            <li class=""><a href="/Home/Introduct">Giới thiệu</a></li>
+            <li class=""><a href="/Guest/Home/Introduct">Giới thiệu</a></li>
             <li class="dropdown ">
-                <a href="/Product">Sản phẩm</a>
+                <a href="/Guest/Product">Sản phẩm</a>
                 <ul class="dropdown-menu dropdownhover-bottom">
                     @if (ViewData["loaisp"] == null)
                     {
@@ -22,17 +21,17 @@
                     {
                         foreach (LoaiSPModel loai in (IEnumerable<LoaiSPModel>)ViewData["loaisp"])
                         {
-                            <li><a href="/Product/Categories/@loai.LoaiSPID">@loai.TenLoaiSP</a></li>
+                            <li><a href="/Guest/Product/Categories/@loai.LoaiSPID">@loai.TenLoaiSP</a></li>
                         }
                     }
                 </ul>
             </li>
-            <li class=""><a href="/Home/News">Tin tức</a></li>
-            <li class=""><a href="/Home/Contact">Liên Hệ</a></li>
+            <li class=""><a href="/Guest/Home/News">Tin tức</a></li>
+            <li class=""><a href="/Guest/Home/Contact">Liên Hệ</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right" style="margin-right: 5px">
             <li class="gio-hang">
-                <a href="/Cart" class="btn-cart-top">
+                <a href="/Guest/Cart" class="btn-cart-top">
                     <img src="~/Content/Guest/uploads/source/icon/iconcart.png" alt="" /> <span class="wcmc-total-items">@ViewData["NumCart"]</span>
                 </a>
             </li>

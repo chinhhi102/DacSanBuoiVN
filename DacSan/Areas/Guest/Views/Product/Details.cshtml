@@ -17,11 +17,11 @@
             <div class="products-detail">
                 <div class="breadcrumb">
                     <div class="btn-group btn-breadcrumb">
-                        <a href="../index.htm" class="btn btn-default">Trang Chủ</a>
+                        <a href="/" class="btn btn-default">Trang Chủ</a>
                         <a class="btn btn-default btn-next"><i class="fa fa-caret-right"></i></a>
-                        <a href="../trai-cay-nhap-khau/index.htm" class="btn btn-default">@ViewData["loaispds"]</a>
+                        <a href="/Guest/Product/Categories/@sp.LoaiSPID" class="btn btn-default">@ViewData["loaispds"]</a>
                         <a class="btn btn-default btn-next"><i class="fa fa-caret-right"></i></a>
-                        <a href="../trai-cay-khac/index.htm" class="btn btn-default">@sp.TenSP</a>
+                        <a href="/Guest/Product/@sp.LoaiSPID/@sp.SanPhamID" class="btn btn-default">@sp.TenSP</a>
                     </div>
                 </div>
                 <div class="row" style="margin-bottom: 10px">
@@ -76,7 +76,7 @@
                                     <div class="addtocart_button">
                                         <input value="Thêm vào giỏ hàng" type="submit" class="btn btn-lg button_cart wcmc_add_to_cart" data-id="900">
                                         <form id="myform" method="post" action="target.html">
-                                            <a href="/Cart?id=@sp.SanPhamID" class="btn btn-lg button_cart button_cart_green wcmc_add_to_cart_now" data-id="900">
+                                            <a href="/Guest/Cart?id=@sp.SanPhamID" class="btn btn-lg button_cart button_cart_green wcmc_add_to_cart_now" data-id="900">
                                                 <span>Mua ngay</span>
                                             </a>
                                             </form>

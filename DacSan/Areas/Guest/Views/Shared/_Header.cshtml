@@ -9,24 +9,24 @@
                 @if (ViewBag.UserName != null)
                 {
                     <p style="display:inline-block; margin:0;">
-                        <a href="/Account/Info"> <i class="fa fa-user" aria-hidden="true"></i> Xin chào, @ViewBag.UserName
+                        <a href="/Guest/Account/Info"> <i class="fa fa-user" aria-hidden="true"></i> Xin chào, @ViewBag.UserName</a>
                     </p>
                     <p style="display:inline-block; margin:0px 0px 0px 14px;">
-                        <a href="/Account/Logout"> <i class="fa fa-sign-out" aria-hidden="true"></i> Đăng xuất
+                        <a href="/Guest/Account/Logout"> <i class="fa fa-sign-out" aria-hidden="true"></i> Đăng xuất</a>
                     </p>
                 }
                 else
                 {
 
                     <p style="display:inline-block; margin:0;">
-                        <a href="/Account/Register"> <i class="fa fa-user-plus" aria-hidden="true"></i> Đăng ký
+                        <a href="/Guest/Account/Register"> <i class="fa fa-user-plus" aria-hidden="true"></i> Đăng ký</a>
                     </p>
                     <p style="display:inline-block; margin:0px 0px 0px 14px;">
-                        <a href="/Account/Login"> <i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập
+                        <a href="/Guest/Account/Login"> <i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập</a>
                     </p>
                 }
                 &nbsp;&nbsp;
-                <p style="display:inline-block;margin:0;"><a href="/Home/Tutorial">Hướng dẫn mua hàng</p>
+                <p style="display:inline-block;margin:0;"><a href="/Guest/Home/Tutorial">Hướng dẫn mua hàng</a></p>
                 <div class="social-icon" style="display:inline-block;">
 
                     <a href="javascript:if(confirm('https://www.facebook.com/myhorizon.birth.m12\n\nThis file was not retrieved because it was filtered out by your project settings.\n\nWould you like to open it from the server?'))window.location='https://www.facebook.com/myhorizon.birth.m12'">
@@ -87,7 +87,7 @@
 
             <div class="col-md-2 text-right">
                 <a href="#" class="btn-search" id="btn-search-modal"><i class="fa fa-search" aria-hidden="true"></i></a>
-                <a href="/Cart" class="btn-cart-top">
+                <a href="/Guest/Cart" class="btn-cart-top">
                     <img src="~/Content/Guest/uploads/source/icon/iconcart.png" alt="" /> <span class="wcmc-total-items" style="top: 0px">@ViewData["NumCart"]</span>
                 </a>
             </div>

@@ -11,7 +11,7 @@
     {
         foreach (LoaiSPModel loai in (IEnumerable<LoaiSPModel>)ViewData["loaisp"])
         {
-            <li class="list-group-item"><a href="/Product/Categories/@loai.LoaiSPID">@loai.TenLoaiSP</a></li>
+            <li class="list-group-item"><a href="/Guest/Product/Categories/@loai.LoaiSPID">@loai.TenLoaiSP</a></li>
         }
     }
 </ul>
