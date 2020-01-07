@@ -1,4 +1,5 @@
 ﻿@using DataLibrary.Models
+@using DataLibrary.Models.NewFolder1
 
 @if (ViewData["loaisp"] == null)
 {
@@ -77,46 +78,6 @@ else
     }
 }
 
-
-<div class="widget_box_post_video" style="">
-    <div class="row">
-        <div id="wpc_post_38" class=" wpv_post">
-            <div class="title-header">
-                <h3 class="header">KHUYẾN MÃI</h3>
-            </div>
-            <div id="widget_post_left_38" class="row">
-
-                <div class="col-xs-6 col-md-3">
-                    <div class="item effect-hover-guong">
-                        <div class="img">
-                            <a href="#" title="sự kiện trái cây 3 miền"><img src="~/Content/Guest/uploads/source/tin-tuc/7105182.jpg" alt="sự kiện trái cây 3 miền" /></a>
-                        </div>
-                        <div class="title">
-                            <h3><a href="#" title="sự kiện trái cây 3 miền">sự kiện trái cây 3 miền</a></h3>
-                            <!-- <div class="excerpt"></div> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-md-3">
-                    <div class="item effect-hover-guong">
-                        <div class="img">
-                            <a href="#" title="Tony Tèo Truy Ân Khách Hàng - Táo Ambrosia Giá Hot"><img src="~/Content/Guest/uploads/source/tin-tuc/caoquylinh2.jpg" alt="Tri Ân Khách Hàng - Táo Ambrosia Giá Hot" /></a>
-                        </div>
-                        <div class="title">
-                            <h3><a href="#" title="Tri Ân Khách Hàng - Táo Ambrosia Giá Hot">Tri Ân Khách Hàng - Táo Giá Hot</a></h3>
-                            <!-- <div class="excerpt"> Nh&acirc;n Diệp Website của Tony T&egrave;o Fruit hoạt động trở lại. Tony T&egrave;o truy &acirc;n kh&aacute;ch h&agrave;ng b&aacute;n t&aacute;o Ambrosia...</div> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
 <div class="widget_box_post" style="">
     <div class="header-title text-center">
         <h2 class="header">Tin Tức</h2>
@@ -124,37 +85,29 @@ else
 
     <div class="row">
         <div id="widget_post_39" class="col-md-8" style="float: left">
+            @if (ViewData["listtintuc"] != null)
+            {
+                foreach (var item in (IEnumerable<tbl_TinTuc>)ViewData["listtintuc"])
+                {
+                    <div class="item col-xs-6">
+                        <div class="img">
+                            <a href="/Guest/Home/NewsDetails/@item.TinTucID" title="@item.TieuDe">
+                                <img src="@item.ImagePath" alt="@item.TieuDe" />
+                            </a>
+                            <div class="time">
+                                <span>@item.NgayViet.Value.Day - @item.NgayViet.Value.Month</span>
+                                <span>@item.NgayViet.Value.Year</span>
+                            </div>
+                        </div>
+                        <div class="title">
+                            <h3><a href="/Guest/Home/NewsDetails/@item.TinTucID" title="@item.TieuDe">@item.TieuDe</a></h3>
+                            <div class="excerpt">@item.NoiDung.Substring(0, 50)</div>
+                        </div>
+                    </div>
+                }
+            }
 
-            <div class="item col-xs-6">
-                <div class="img">
-                    <a href="/Guest/Home/News/1" title="NHỮNG LOẠI HOA QUẢ ƯỚP CHẤT ĐỘC ĐƯỢC BÁN ĐẦY ĐƯỜNG VÀ HẬU QUẢ">
-                        <img src="~/Content/Guest/uploads/source/tin-tuc/083614d1mh.jpg" alt="NHỮNG LOẠI HOA QUẢ ƯỚP CHẤT ĐỘC ĐƯỢC BÁN ĐẦY ĐƯỜNG VÀ HẬU QUẢ" />
-                    </a>
-                    <div class="time">
-                        <span>29-12</span>
-                        <span>2017</span>
-                    </div>
-                </div>
-                <div class="title">
-                    <h3><a href="/Guest/Home/News/1" title="NHỮNG LOẠI HOA QUẢ ƯỚP CHẤT ĐỘC ĐƯỢC BÁN ĐẦY ĐƯỜNG VÀ HẬU QUẢ">NHỮNG LOẠI HOA QUẢ ƯỚP CHẤT ĐỘC ĐƯỢC BÁN ĐẦY ĐƯỜNG VÀ HẬU QUẢ</a></h3>
-                    <div class="excerpt"> Cục Bảo vệ thực vật Việt Nam (Bộ NN-PTNT) đ&atilde;...</div>
-                </div>
-            </div>
-            <div class="item col-xs-6">
-                <div class="img">
-                    <a href="/Guest/Home/News/1" title="Cách phân biệt lựu Ấn Độ, lựu Tây Ban Nha và lựu Peru">
-                        <img src="~/Content/Guest/uploads/source/tin-tuc/15031980853.jpg" alt="Cách phân biệt lựu Ấn Độ, lựu Tây Ban Nha và lựu Peru" />
-                    </a>
-                    <div class="time">
-                        <span>14-01</span>
-                        <span>2018</span>
-                    </div>
-                </div>
-                <div class="title">
-                    <h3><a href="/Guest/Home/News/1" title="Cách phân biệt lựu Ấn Độ, lựu Tây Ban Nha và lựu Peru">Cách phân biệt lựu Ấn Độ, lựu Tây Ban Nha và lựu Peru</a></h3>
-                    <div class="excerpt"> Lựu Ấn Độ, lựu T&acirc;y Ban Nha, lựu Peru l&agrave;...</div>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>

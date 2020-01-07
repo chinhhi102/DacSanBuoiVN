@@ -9,11 +9,15 @@ using static DataLibrary.BusinessLogic.CartDetailProcessor;
 using static DataLibrary.BusinessLogic.CartProcessor;
 using DataLibrary.Models;
 using DacSan.Models;
+using DataLibrary.Models.NewFolder1;
+using PagedList;
 
 namespace DacSan.Areas.Guest.Controllers
 {
     public class ProductController : Controller
     {
+
+        Model1 db = new Model1();
         private void __construct()
         {
             ViewBag.Title = "Trang Người dùng";
@@ -38,6 +42,9 @@ namespace DacSan.Areas.Guest.Controllers
                     }
                     Session["cart"] = list;
                 }
+
+                List<tbl_TinTuc> listtintuc = db.tbl_TinTuc.ToList();
+                ViewData["listTinTuc"] = listtintuc;
 
                 var loaisp = LoadLoaiSP(12);
                 ViewData["loaisp"] = loaisp;

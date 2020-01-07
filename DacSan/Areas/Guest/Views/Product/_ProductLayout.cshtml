@@ -1,4 +1,5 @@
 ﻿@using DataLibrary.Models
+@using DataLibrary.Models.NewFolder1
 @model DataLibrary.Models.ProductModel
 
 <div>
@@ -61,37 +62,27 @@
     <div class="widget_box_post" style="">
         <div class="row">
             <div id="widget_post_39" class="col-md-12">
-
-                <div class="item col-xs-12">
-                    <div class="img">
-                        <a href="#" title="NHỮNG LOẠI HOA QUẢ ƯỚP CHẤT ĐỘC ĐƯỢC BÁN ĐẦY ĐƯỜNG VÀ HẬU QUẢ">
-                            <img src="~/Content/Guest/uploads/source/tin-tuc/083614d1mh.jpg" alt="NHỮNG LOẠI HOA QUẢ ƯỚP CHẤT ĐỘC ĐƯỢC BÁN ĐẦY ĐƯỜNG VÀ HẬU QUẢ" />
-                        </a>
-                        <div class="time">
-                            <span>29-12</span>
-                            <span>2017</span>
+                @if (ViewData["listtintuc"] != null)
+                {
+                    foreach (var item in (IEnumerable<tbl_TinTuc>)ViewData["listtintuc"])
+                    {
+                        <div class="item col-xs-12">
+                            <div class="img">
+                                <a href="/Guest/Home/NewsDetails/@item.TinTucID" title="@item.TieuDe">
+                                    <img src="@item.ImagePath" alt="@item.TieuDe" />
+                                </a>
+                                <div class="time">
+                                    <span>@item.NgayViet.Value.Day - @item.NgayViet.Value.Month</span>
+                                    <span>@item.NgayViet.Value.Year</span>
+                                </div>
+                            </div>
+                            <div class="title">
+                                <h3><a href="/Guest/Home/NewsDetails/@item.TinTucID" title="@item.TieuDe">@item.TieuDe</a></h3>
+                                <div class="excerpt">@item.NoiDung.Substring(0, 50)</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="title">
-                        <h3><a href="#" title="NHỮNG LOẠI HOA QUẢ ƯỚP CHẤT ĐỘC ĐƯỢC BÁN ĐẦY ĐƯỜNG VÀ HẬU QUẢ">NHỮNG LOẠI HOA QUẢ ƯỚP CHẤT ĐỘC ĐƯỢC BÁN ĐẦY ĐƯỜNG VÀ HẬU QUẢ</a></h3>
-                        <div class="excerpt"> Cục Bảo vệ thực vật Việt Nam (Bộ NN-PTNT) đ&atilde;...</div>
-                    </div>
-                </div>
-                <div class="item col-xs-12">
-                    <div class="img">
-                        <a href="#" title="Cách phân biệt lựu Ấn Độ, lựu Tây Ban Nha và lựu Peru">
-                            <img src="~/Content/Guest/uploads/source/tin-tuc/15031980853.jpg" alt="Cách phân biệt lựu Ấn Độ, lựu Tây Ban Nha và lựu Peru" />
-                        </a>
-                        <div class="time">
-                            <span>14-01</span>
-                            <span>2018</span>
-                        </div>
-                    </div>
-                    <div class="title">
-                        <h3><a href="#" title="Cách phân biệt lựu Ấn Độ, lựu Tây Ban Nha và lựu Peru">Cách phân biệt lựu Ấn Độ, lựu Tây Ban Nha và lựu Peru</a></h3>
-                        <div class="excerpt"> Lựu Ấn Độ, lựu T&acirc;y Ban Nha, lựu Peru l&agrave;...</div>
-                    </div>
-                </div>
+                    }
+                }
             </div>
         </div>
     </div>

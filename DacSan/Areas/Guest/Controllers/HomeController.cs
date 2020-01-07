@@ -8,11 +8,14 @@ using static DataLibrary.BusinessLogic.ProductProcessor;
 using static DataLibrary.BusinessLogic.CartDetailProcessor;
 using DataLibrary.Models;
 using DacSan.Models;
+using DataLibrary.Models.NewFolder1;
+using PagedList;
 
 namespace DacSan.Areas.Guest.Controllers
 {
     public class HomeController : Controller
     {
+        Model1 db = new Model1();
         private void __construct()
         {
             ViewBag.Title = "Trang Người dùng";
@@ -36,7 +39,8 @@ namespace DacSan.Areas.Guest.Controllers
                     }
                     Session["cart"] = list;
                 }
-
+                List<tbl_TinTuc> listtintuc = db.tbl_TinTuc.ToList();
+                ViewData["listTinTuc"] = listtintuc;
                 var loaisp = LoadLoaiSP(12);
                 ViewData["loaisp"] = loaisp;
                 foreach (LoaiSPModel loai in (IEnumerable<LoaiSPModel>)ViewData["loaisp"])
@@ -80,19 +84,21 @@ namespace DacSan.Areas.Guest.Controllers
             return View();
         }
 
-        public ActionResult News(int? id)
+        public ActionResult News(int page = 1, int pageSize = 7)
         {
             __construct();
-            if (id.HasValue)
-            {
-                return View("NewsDetails");
-            }
-            else
-            {
-                return View("News");
-            }
-        }
+            List<tbl_TinTuc> tintuc = db.tbl_TinTuc.ToList();
 
+            PagedList<tbl_TinTuc> view = new PagedList<tbl_TinTuc>(tintuc, page, pageSize);
+            return View("News", view);
+        }
+        public ActionResult NewsDetails(int id, int page = 1, int pageSize = 7)
+        {
+            __construct();
+            tbl_TinTuc tintuc = db.tbl_TinTuc.Find(id);
+
+            return View("NewsDetails", tintuc);
+        }
         public ActionResult Contact()
         {
             __construct();

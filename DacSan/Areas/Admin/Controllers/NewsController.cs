@@ -13,9 +13,29 @@ namespace DacSan.Areas.Admin.Controllers
     public class NewsController : Controller
     {
         Model1 db = new Model1();
+        private void __construct()
+        {
+            ViewBag.Title = "Trang Quản Trị";
+            if (Session["UserID"] != null)
+            {
+                if ((int)Session["UserRole"] == 1)
+                {
+                    Session.Clear();
+                }
+                else
+                {
+                    ViewBag.UserID = Session["UserID"];
+                    ViewBag.UserName = Session["UserName"];
+                    ViewBag.UserRole = Session["UserRole"];
+                }
+            }
+        }
         // GET: Admin/News
         public ActionResult Index(int page=1,int pageSize = 7)
         {
+            __construct();
+            if (Session["UserID"] == null)
+                return RedirectToAction("Login", "Account");
             List<tbl_TinTuc> tintuc = db.tbl_TinTuc.ToList();
             
             PagedList<tbl_TinTuc> view = new PagedList<tbl_TinTuc>(tintuc, page, pageSize);
@@ -23,6 +43,9 @@ namespace DacSan.Areas.Admin.Controllers
         }
         public ActionResult Create()
         {
+            __construct();
+            if (Session["UserID"] == null)
+                return RedirectToAction("Login", "Account");
             return View();
         }
         [HttpPost]
@@ -42,6 +65,9 @@ namespace DacSan.Areas.Admin.Controllers
         }
         public ActionResult Edit(int id=1)
         {
+            __construct();
+            if (Session["UserID"] == null)
+                return RedirectToAction("Login", "Account");
             tbl_TinTuc tintuc = db.tbl_TinTuc.Find(id);
             return View(tintuc);
         }

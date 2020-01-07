@@ -1,48 +1,50 @@
 ﻿
+@using PagedList.Mvc;
+@using PagedList;
+
+@model IPagedList<DataLibrary.Models.NewFolder1.tbl_TinTuc>
+
 @{
     ViewBag.Title = "Tin tức";
 }
 
 <div class="object-detail">
     <div class="post">
-        <div class="item">
-            <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4 img">
-                <a href="/Guest/News/1"><img src="~/Content/Guest/uploads/source/tin-tuc/chery.jpg" alt="CÁCH PHÂN BIỆT CÁC LOẠI CHERRY" /></a>
-                <div class="time">
-                    <span>29-12</span>
-                    <span>2017</span>
+        @if (Model.Count == 0)
+        {
+            <div class="alert alert-info">Hiện không có tin nào nào</div>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <div class="item">
+                    <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4 img">
+                        <a href="/Guest/Home/NewsDetails/@item.TinTucID"><img src="@item.ImagePath" alt="@item.TieuDe" /></a>
+                        <div class="time">
+                            <span>@item.NgayViet.Value.Day-@item.NgayViet.Value.Month</span>
+                            <span>@item.NgayViet.Value.Year</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-7 col-md-8 col-lg-8 title">
+                        <h2 class="header"><a href="/Guest/Home/NewsDetails/@item.TinTucID">@item.TieuDe</a></h2>
+                        <div class="description">
+                            @if (item.NoiDung.Length > 100)
+                            {
+                                item.NoiDung = item.NoiDung.Substring(0, 100) + "...";
+                                @item.NoiDung
+                            }
+                            else
+                            {
+                                @item.NoiDung
+                            }
+
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-7 col-md-8 col-lg-8 title">
-                <h2 class="header"><a href="News/1">CÁCH PHÂN BIỆT CÁC LOẠI CHERRY</a></h2>
-                <div class="description">Trong b&agrave;i viết n&agrave;y t&ocirc;i sẽ hướng dẫn c&aacute;c bạn c&aacute;ch ph&acirc;n biệt c&aacute;c loại cherry để bạn c&oacute; thể chọn mua đ&uacute;ng thương hiệu cherry mong muốn cho gia đ&igrave;nh m&igrave;nh.</div>
-            </div>
-        </div>
-        <nav class="text-center">
-            <nav>
-                <ul class="pagination">
-                    <li>
-                        <a href="tin-tuc-page=1.htm" aria-label="Previous">
-                            <i class="glyphicon glyphicon-step-backward"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tin-tuc-page=1.htm"><i class="glyphicon glyphicon-chevron-left"></i></a>
-                    </li>
-                    <li><a href="tin-tuc-page=1.htm">1</a></li>
-                    <li class="active">
-                        <span>2</span>
-                    </li>
-                    <li><a href="tin-tuc-page=3.htm">3</a></li>
-                    <li><a href="tin-tuc-page=3.htm"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                    <li>
-                        <a href="tin-tuc-page=3.htm" aria-label="Next">
-                            <i class="glyphicon glyphicon-step-forward"></i>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </nav>
+
+            } @Html.PagedListPager(Model, page => Url.Action("", new { page, pageSize = Model.PageSize }))
+        }
     </div>
 </div>
 
