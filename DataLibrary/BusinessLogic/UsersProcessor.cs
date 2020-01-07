@@ -35,8 +35,7 @@ namespace DataLibrary.BusinessLogic
 
         public static List<UsersModel> LoadUsers()
         {
-            string sql = @"select Username, Password, FirstName, LastName, EmailAddress, PhoneNumber, Role
-                           from dbo.tbl_Users";
+            string sql = @"select * from dbo.tbl_Users";
             System.Diagnostics.Debug.WriteLine(sql);
             return SqlDataAccess.LoadData<UsersModel>(sql);
         }

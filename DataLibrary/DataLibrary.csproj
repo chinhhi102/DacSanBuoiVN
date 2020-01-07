@@ -34,9 +34,19 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.30\lib\net461\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,9 +69,27 @@
     <Compile Include="Models\CartDetailModel.cs" />
     <Compile Include="Models\CartModel.cs" />
     <Compile Include="Models\DiaChiModel.cs" />
+    <Compile Include="Models\Entityframework\ViewModel.cs" />
     <Compile Include="Models\GuestModel.cs" />
     <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\LoaiSPModel.cs" />
+    <Compile Include="Models\Entityframework\C__RefactorLog.cs" />
+    <Compile Include="Models\Entityframework\Model1.cs" />
+    <Compile Include="Models\Entityframework\tbl_ChiTietDonDatHang.cs" />
+    <Compile Include="Models\Entityframework\tbl_ChiTietGioHang.cs" />
+    <Compile Include="Models\Entityframework\tbl_DiaChi.cs" />
+    <Compile Include="Models\Entityframework\tbl_DiaChiNhanHang.cs" />
+    <Compile Include="Models\Entityframework\tbl_DonDatHang.cs" />
+    <Compile Include="Models\Entityframework\tbl_GioHang.cs" />
+    <Compile Include="Models\Entityframework\tbl_Images.cs" />
+    <Compile Include="Models\Entityframework\tbl_KhachHang.cs" />
+    <Compile Include="Models\Entityframework\tbl_KhuyenMai.cs" />
+    <Compile Include="Models\Entityframework\tbl_LienHe.cs" />
+    <Compile Include="Models\Entityframework\tbl_LoaiSP.cs" />
+    <Compile Include="Models\Entityframework\tbl_SanPham.cs" />
+    <Compile Include="Models\Entityframework\tbl_TinTuc.cs" />
+    <Compile Include="Models\Entityframework\tbl_Users.cs" />
+    <Compile Include="Models\NewModel.cs" />
     <Compile Include="Models\OrderDetailModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
@@ -69,7 +97,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

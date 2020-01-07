@@ -26,6 +26,8 @@ INSERT INTO dbo.tbl_DiaChi VALUES(N'Bình Định');
 
 SELECT * FROM dbo.tbl_DiaChi;
 
+SET IDENTITY_INSERT tbl_TinTuc ON
+
 -- Thêm loại sản phẩm
 TRUNCATE TABLE dbo.tbl_LoaiSP;
 

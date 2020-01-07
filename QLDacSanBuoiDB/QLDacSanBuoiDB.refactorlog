@@ -196,4 +196,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="NgayThem" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="6564e645-04aa-4ae0-a9e3-778f9ef044c8" ChangeDateTime="01/05/2020 04:35:19">
+    <Property Name="ElementName" Value="[dbo].[tbl_TinTuc].[ImageID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tbl_TinTuc]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ImagePath" />
+  </Operation>
 </Operations>
